@@ -1,0 +1,10 @@
+.button-container {
+  display: flex;              /* Activar flexbox para los botones */
+  flex : 1;
+}
+
+.action-button {
+  width: 150px;
+  flex: 1;                    /* Cada botón ocupa el mismo espacio */
+  margin: 0 30px;          /* Espacio entre los botones */
+}

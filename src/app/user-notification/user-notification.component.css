@@ -1,0 +1,13 @@
+.container {
+  display: flex;               /* Activar flexbox */
+  width: 80%;                /* Asegúrate de que el contenedor ocupe todo el ancho */
+}
+
+.action-button {
+  flex: 1;                    /* El botón ocupa 1 parte de 4 (1/4 del espacio) */
+  margin-right: 8px;         /* Espacio entre el botón y el campo de formulario */
+}
+
+.form-field {
+  flex: 3;                    /* El campo de formulario ocupa 3 partes de 4 (3/4 del espacio) */
+}

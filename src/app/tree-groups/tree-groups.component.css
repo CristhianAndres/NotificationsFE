@@ -1,0 +1,6 @@
+.tree-container {
+  display: flex;             /* Activar Flexbox */
+    flex-direction: column;   /* Alinear elementos en columna */
+    align-items: flex-start;   /* Alinear todos los elementos al inicio (izquierda) */
+      justify-content: flex-start; /* Alinear al inicio (parte superior) */
+}
