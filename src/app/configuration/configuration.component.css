@@ -1,0 +1,41 @@
+.container-conf {
+  margin: 0; /* Sin márgenes */
+  padding: 0; /* Sin padding */
+  height: 100%; /* Puede ser el valor que necesites */
+  width: 100%; /* Puede ser el valor que necesites */
+}
+
+.tile-content-buttons-conf {
+  background-color: lightblue;
+  display: flex;               /* Activar Flexbox */
+   flex-direction: column;      /* Alinear elementos en columna */
+}
+
+.tile-content-data {
+  background-color: lightblue;
+}
+
+.action-button-conf-opt {
+  width: 80%;
+}
+
+.demo-table {
+  width: 100%;
+}
+
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
+}
+
+.tile-content-button-conf {
+  display: flex;               /* Activar Flexbox */
+  flex-direction: column;      /* Alinear elementos en columna */
+  justify-content: flex-start; /* Alinear todos los botones al inicio (parte superior) */
+  height: 100%;                /* Asegurarse de que el contenedor ocupe toda la altura del tile */
+  padding: 16px;               /* Espaciado interno opcional */
+  box-sizing: border-box;      /* Incluir padding en el cálculo de ancho y alto */
+}

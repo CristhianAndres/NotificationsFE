@@ -1,0 +1,74 @@
+<mat-toolbar>
+  <span>CONFIGURATION</span>
+</mat-toolbar>
+
+<div class="container-conf>">
+  <mat-grid-list cols="9" rowHeight="100px">
+
+    <mat-grid-tile colspan="2" rowspan="4" class="tile-content-buttons-conf">
+      <div class="tile-content-button-conf">
+        <button mat-fab extended class="action-button-conf-opt" (click)="openDialogUser()">
+          User
+        </button>
+        <button mat-fab extended class="action-button-conf-opt" (click)="openDialogActor()">
+          Actor
+        </button>
+        <button mat-fab extended class="action-button-conf-opt" (click)="openDialogTopic()">
+          Topic
+        </button>
+        <button mat-fab extended class="action-button-conf-opt" (click)="openDialogGroup()">
+          Group
+        </button>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="7" rowspan="4" class="tile-content-data">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>No.</th>
+          <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{element.email}}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="userName">
+          <th mat-header-cell *matHeaderCellDef>Weight</th>
+          <td mat-cell *matCellDef="let element">{{element.userName}}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="birthday">
+          <th mat-header-cell *matHeaderCellDef>Symbol</th>
+          <td mat-cell *matCellDef="let element">{{element.birthday}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="gender">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{element.gender}}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef>Weight</th>
+          <td mat-cell *matCellDef="let element">{{element.role}}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Symbol</th>
+          <td mat-cell *matCellDef="let element">{{element.action}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

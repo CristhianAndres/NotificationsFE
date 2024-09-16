@@ -1,26 +1,39 @@
 <mat-toolbar>
   <span>Notification System</span>
 </mat-toolbar>
-<div class="container">
-<mat-grid-list cols="10" rowHeight="100px" class="full-grid">
+<div class="container-news-feed>">
+  <mat-grid-list cols="11" rowHeight="100px">
 
-  <mat-grid-tile colspan="3" rowspan="1" style="background-color: lightblue;">
-    <app-post-search></app-post-search>
-  </mat-grid-tile>
+    <mat-grid-tile colspan="3" rowspan="1" class="tile-content-search">
+      <app-post-search class="post-search">
+      </app-post-search>
+    </mat-grid-tile>
 
-  <mat-grid-tile colspan="5" rowspan="1" style="background-color: lightblue;">
-    <app-post-options></app-post-options>
-  </mat-grid-tile>
+    <mat-grid-tile colspan="5" rowspan="1" style="background-color: lightblue;">
+      <app-post-options></app-post-options>
+    </mat-grid-tile>
 
-  <mat-grid-tile colspan="2" rowspan="1" style="background-color: lightblue;">
-    <app-user-notification></app-user-notification>
-  </mat-grid-tile>
-<!--fila 2-->
-  <mat-grid-tile colspan="3" rowspan="5" style="background-color: lightblue;">
-    <div class="tile-content">
-    <app-tree-groups></app-tree-groups>
-    </div>
-  </mat-grid-tile>
+    <mat-grid-tile colspan="3" rowspan="1" style="background-color: lightblue;">
+      <app-user-notification></app-user-notification>
+    </mat-grid-tile>
+  <!--fila 2-->
+    <mat-grid-tile colspan="3" rowspan="6" class="tile-content-tree">
+        <app-tree-groups class="tree-groups">
+        </app-tree-groups>
+    </mat-grid-tile>
+    <!--lista de post's-->
+    <mat-grid-tile colspan="5" rowspan="6" style="background-color: azure;">
+      <div class="tile-content-post scrollable-content">
+        <app-post-list></app-post-list>
+      </div>
+    </mat-grid-tile>
 
-</mat-grid-list>
+    <!--configuracion-->
+    <mat-grid-tile colspan="3" rowspan="6" style="background-color: azure;">
+      <button mat-fab extended class="action-button-conf" (click)="openDialog()">
+        Configuration
+      </button>
+    </mat-grid-tile>
+
+  </mat-grid-list>
 </div>

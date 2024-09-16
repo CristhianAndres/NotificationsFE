@@ -1,20 +1,45 @@
-.container {
+.container-news-feed {
   margin: 0; /* Sin márgenes */
   padding: 0; /* Sin padding */
   height: 100%; /* Puede ser el valor que necesites */
   width: 100%; /* Puede ser el valor que necesites */
 }
 
-.full-grid {
-  width: auto; /* Ocupa el 100% del ancho */
-  height: auto; /* Ajusta según tus necesidades */
+.tile-content-post {
+  justify-content: center;    /* Centrar contenido horizontalmente */
+  align-items: center;        /* Centrar contenido verticalmente */
+  height: 100%;               /* Asegurarse de que el contenedor ocupe toda la altura del tile */
+  width: 100%;                /* Asegurarse de que el contenedor ocupe todo el ancho del tile */
 }
 
-.tile-content {
-  display: flex;             /* Activar Flexbox */
-  flex-direction: column;    /* Alinear elementos en columna */
-  align-items: flex-start;   /* Alinear todos los elementos al inicio (izquierda) */
-  justify-content: flex-start; /* Alinear al inicio (parte superior) */
-  height: 100%;              /* Asegurarse de que el contenedor ocupe toda la altura */
-  padding: 8px;             /* Espaciado interno opcional */
+.scrollable-content {
+  height: 100%;             /* Asegurarse de que el contenedor ocupe toda la altura del tile */
+  overflow: auto;           /* Activar el desplazamiento cuando el contenido excede el tamaño */
+  box-sizing: border-box;   /* Incluir padding en el cálculo de altura y anchura */
+}
+
+.tile-content-search {
+  background-color: lightblue;
+}
+
+.tile-content-tree {
+  background-color: lightblue;
+  justify-content: flex-start;
+
+    height: 100%;             /* Asegurarse de que el contenedor ocupe toda la altura del tile */
+    overflow: auto;           /* Activar el desplazamiento cuando el contenido excede el tamaño */
+    box-sizing: border-box;   /* Incluir padding en el cálculo de altura y anchura */
+}
+
+.post-search {
+  width: 80%;
+}
+
+.tree-groups {
+  width: 90%;
+  height: 90%;
+}
+
+.action-button-conf {
+  width: 80%;
 }

@@ -1,0 +1,51 @@
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between; /* Alinea los elementos a los extremos */
+  width: 100%; /* Asegúrate de que la barra de herramientas ocupe todo el ancho */
+}
+
+.container {
+  margin: 5; /* Sin márgenes */
+  padding: 5; /* Sin padding */
+  height: 100%; /* Puede ser el valor que necesites */
+  width: 98%; /* Puede ser el valor que necesites */
+}
+
+.tile-content-text-image {
+  display: flex;             /* Activar Flexbox */
+  flex-direction: column;    /* Alinear elementos en columna */
+  align-items: flex-start;   /* Alinear todos los elementos al inicio (izquierda) */
+  justify-content: flex-start; /* Alinear al inicio (parte superior) */
+  height: 100%;              /* Asegurarse de que el contenedor ocupe toda la altura */
+  padding: 8px;             /* Espaciado interno opcional */
+  background-color: darkseagreen;
+}
+
+.tile-content-text-image-div {
+  display: flex;               /* Activar Flexbox */
+    flex-direction: column;      /* Alinear elementos en columna */
+    align-items: flex-start;     /* Alinear todos los elementos al inicio (parte superior) */
+    height: 100%;                /* Asegurarse de que el contenedor ocupe toda la altura del tile */
+    padding: 16px;               /* Espaciado interno opcional */
+    box-sizing: border-box;      /* Incluir padding en el cálculo de ancho y alto */
+}
+
+.action-button {
+  /*width: 150px;*/
+  width: 100%;
+  flex: 1;                    /* Cada botón ocupa el mismo espacio */
+  margin: 0 70px;          /* Espacio entre los botones */
+}
+
+.action-button-save {
+  width: 100%;
+}
+
+.tile-contentb {
+  display: flex;               /* Activar Flexbox */
+  flex-direction: column;      /* Alinear elementos en columna */
+  align-items: flex-start;     /* Alinear todos los elementos al inicio (izquierda) */
+  height: 100%;                /* Asegurarse de que el contenedor ocupe toda la altura del tile */
+  padding: 16px;               /* Espaciado interno opcional */
+  box-sizing: border-box;      /* Incluir padding en el cálculo de ancho y alto */
+}

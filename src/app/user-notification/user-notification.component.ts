@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms'; // Si estás usando formul
 @Component({
   selector: 'app-user-notification',
   standalone: true,
-  imports: [MatFormFieldModule, MatButtonModule, MatInputModule, MatSelectModule, MatIconModule],
+  imports: [MatFormFieldModule, MatButtonModule, MatInputModule, MatSelectModule, MatIconModule, ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './user-notification.component.html',
   styleUrl: './user-notification.component.css'

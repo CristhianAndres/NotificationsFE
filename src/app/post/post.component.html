@@ -1,0 +1,88 @@
+<mat-toolbar>
+  <span>Create Post</span>
+  <span>POST</span>
+</mat-toolbar>
+
+<div class="container">
+  <mat-grid-list cols="4" rowHeight="80px">
+
+    <mat-grid-tile colspan="2" rowspan="1" style="background-color: lightblue;">
+      <app-dropdown-groups></app-dropdown-groups>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="4" rowspan="6" class="tile-content-text-image">
+      <div class="tile-content-text-image-div">
+        <app-text-image-post></app-text-image-post>
+      </div>
+    </mat-grid-tile>
+
+    <!-- botones -->
+    <mat-grid-tile colspan="1" rowspan="1">
+      <button mat-fab extended class="action-button" (click)="openDialog()">
+        <mat-icon>monochrome_photos</mat-icon>
+        Add Photos
+      </button>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="4" rowspan="2">
+      <mat-list>
+        @for (photo of photos; track photo) {
+        <mat-list-item>
+          {{ photo.name }}
+          <button mat-button (click)="onButtonClick(photo.name)">
+            <mat-icon>delete_forever</mat-icon>
+          </button>
+        </mat-list-item>
+        }
+      </mat-list>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1" >
+      <button mat-fab extended class="action-button" (click)="openDialog()">
+        <mat-icon>monochrome_photos</mat-icon>
+        Add Documents
+      </button>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="4" rowspan="2">
+      <mat-list>
+        @for (document of documents; track document) {
+        <mat-list-item>
+          {{ document.name }}
+          <button mat-button (click)="onButtonClick(document.name)">
+            <mat-icon>delete_forever</mat-icon>
+          </button>
+        </mat-list-item>
+        }
+      </mat-list>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1" >
+      <button mat-fab extended class="action-button" (click)="openDialog()">
+        <mat-icon>monochrome_photos</mat-icon>
+        Tag People
+      </button>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="4" rowspan="2">
+      <mat-list>
+        @for (tag of tags; track tag) {
+        <mat-list-item>
+          {{ tag.name }}
+          <button mat-button (click)="onButtonClick(tag.name)">
+            <mat-icon>delete_forever</mat-icon>
+          </button>
+        </mat-list-item>
+        }
+      </mat-list>
+    </mat-grid-tile>
+
+    <!-- boton para guardar -->
+    <mat-grid-tile colspan="4" rowspan="2">
+      <button mat-fab extended class="action-button-save">
+        SAVE POST
+      </button>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>
