@@ -31,8 +31,27 @@
     box-sizing: border-box;   /* Incluir padding en el cálculo de altura y anchura */
 }
 
+.tile-content-posts {
+  background-color: lightblue;
+  justify-content: flex-start;
+
+    height: 100%;             /* Asegurarse de que el contenedor ocupe toda la altura del tile */
+    overflow: auto;           /* Activar el desplazamiento cuando el contenido excede el tamaño */
+    box-sizing: border-box;   /* Incluir padding en el cálculo de altura y anchura */
+}
+
+.tile-content-conf {
+  background-color: lightblue;
+  justify-content: flex-start;
+
+    height: 100%;             /* Asegurarse de que el contenedor ocupe toda la altura del tile */
+    overflow: auto;           /* Activar el desplazamiento cuando el contenido excede el tamaño */
+    box-sizing: border-box;   /* Incluir padding en el cálculo de altura y anchura */
+}
+
 .post-search {
   width: 80%;
+  height: 70%;
 }
 
 .tree-groups {

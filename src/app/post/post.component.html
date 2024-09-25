@@ -3,11 +3,12 @@
   <span>POST</span>
 </mat-toolbar>
 
-<div class="container">
+<div class="container-post">
   <mat-grid-list cols="4" rowHeight="80px">
 
     <mat-grid-tile colspan="2" rowspan="1" style="background-color: lightblue;">
-      <app-dropdown-groups></app-dropdown-groups>
+      <app-dropdown-groups class="dropdown-groups">
+      </app-dropdown-groups>
     </mat-grid-tile>
 
     <mat-grid-tile colspan="4" rowspan="6" class="tile-content-text-image">
@@ -17,37 +18,42 @@
     </mat-grid-tile>
 
     <!-- botones -->
-    <mat-grid-tile colspan="1" rowspan="1">
-      <button mat-fab extended class="action-button" (click)="openDialog()">
+    <mat-grid-tile colspan="1" rowspan="2" class="tile-content-button-photos">
+      <button mat-fab extended class="action-button-post" (click)="openDialog()">
         <mat-icon>monochrome_photos</mat-icon>
         Add Photos
       </button>
     </mat-grid-tile>
 
-    <mat-grid-tile colspan="4" rowspan="2">
-      <mat-list>
-        @for (photo of photos; track photo) {
-        <mat-list-item>
-          {{ photo.name }}
-          <button mat-button (click)="onButtonClick(photo.name)">
-            <mat-icon>delete_forever</mat-icon>
-          </button>
-        </mat-list-item>
-        }
-      </mat-list>
+    <mat-grid-tile colspan="2" rowspan="2" class="tile-content-photos">
+      <div class="tile-content-list-files-div">
+        <mat-list>
+          @for (photo of photos; track photo) {
+          <mat-list-item class="custom-list-item">
+            {{ photo.name }}
+            <button mat-button (click)="onButtonClick(photo.name)">
+              <mat-icon>delete_forever</mat-icon>
+            </button>
+          </mat-list-item>
+          }
+        </mat-list>
+      </div>
     </mat-grid-tile>
 
-    <mat-grid-tile colspan="1" rowspan="1" >
-      <button mat-fab extended class="action-button" (click)="openDialog()">
+    <mat-grid-tile colspan="1" rowspan="2" style="background-color: darkseagreen; padding: 0px 10px;"></mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="2" class="tile-content-button-photos">
+      <button mat-fab extended class="action-button-post" (click)="openDialog()">
         <mat-icon>monochrome_photos</mat-icon>
-        Add Documents
+        Add Actors
       </button>
     </mat-grid-tile>
 
-    <mat-grid-tile colspan="4" rowspan="2">
+    <mat-grid-tile colspan="2" rowspan="2" class="tile-content-photos">
+      <div class="tile-content-list-files-div">
       <mat-list>
         @for (document of documents; track document) {
-        <mat-list-item>
+        <mat-list-item class="custom-list-item">
           {{ document.name }}
           <button mat-button (click)="onButtonClick(document.name)">
             <mat-icon>delete_forever</mat-icon>
@@ -55,19 +61,23 @@
         </mat-list-item>
         }
       </mat-list>
+      </div>
     </mat-grid-tile>
 
-    <mat-grid-tile colspan="1" rowspan="1" >
-      <button mat-fab extended class="action-button" (click)="openDialog()">
+    <mat-grid-tile colspan="1" rowspan="2" style="background-color: darkseagreen; padding: 0px 10px;"></mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="2" class="tile-content-button-photos">
+      <button mat-fab extended class="action-button-post" (click)="openDialog()">
         <mat-icon>monochrome_photos</mat-icon>
         Tag People
       </button>
     </mat-grid-tile>
 
-    <mat-grid-tile colspan="4" rowspan="2">
+    <mat-grid-tile colspan="2" rowspan="2" class="tile-content-photos">
+      <div class="tile-content-list-files-div">
       <mat-list>
         @for (tag of tags; track tag) {
-        <mat-list-item>
+        <mat-list-item class="custom-list-item">
           {{ tag.name }}
           <button mat-button (click)="onButtonClick(tag.name)">
             <mat-icon>delete_forever</mat-icon>
@@ -75,7 +85,10 @@
         </mat-list-item>
         }
       </mat-list>
+      </div>
     </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="2" style="background-color: darkseagreen; padding: 0px 10px;"></mat-grid-tile>
 
     <!-- boton para guardar -->
     <mat-grid-tile colspan="4" rowspan="2">

@@ -32,19 +32,23 @@ export class PostComponent {
   photos = [
       { name: 'photo 1' },
       { name: 'photo 2' },
-      { name: 'photo 3' }
+      { name: 'photo 3' },
+      { name: 'photo 4' },
+      { name: 'photo 5' },
+      { name: 'photo 6' }
     ];
 
   documents = [
         { name: 'document 1' },
-        { name: 'document 2' },
-        { name: 'document 3' }
+        { name: 'document 2' }
       ];
 
   tags = [
         { name: 'tag 1' },
         { name: 'tag 2' },
-        { name: 'tag 3' }
+        { name: 'tag 3' },
+        { name: 'tag 4' },
+        { name: 'tag 5' }
       ];
 
   readonly dialog = inject(MatDialog);
