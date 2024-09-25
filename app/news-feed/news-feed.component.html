@@ -1,0 +1,39 @@
+<mat-toolbar>
+  <span>Notification System</span>
+</mat-toolbar>
+<div class="container-news-feed>">
+  <mat-grid-list cols="11" rowHeight="2:1">
+
+    <mat-grid-tile colspan="3" rowspan="2" class="tile-content-search">
+      <app-post-search class="post-search">
+      </app-post-search>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="5" rowspan="2" style="background-color: lightblue;">
+      <app-post-options></app-post-options>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="3" rowspan="2" style="background-color: lightblue;">
+      <app-user-notification></app-user-notification>
+    </mat-grid-tile>
+  <!--fila 2-->
+    <mat-grid-tile colspan="3" rowspan="6" class="tile-content-tree">
+        <app-tree-groups class="tree-groups">
+        </app-tree-groups>
+    </mat-grid-tile>
+    <!--lista de post's-->
+    <mat-grid-tile colspan="5" rowspan="6" style="background-color: azure;" class="tile-content-posts">
+      <div class="tile-content-post scrollable-content">
+        <app-post-list></app-post-list>
+      </div>
+    </mat-grid-tile>
+
+    <!--configuracion-->
+    <mat-grid-tile colspan="3" rowspan="6" style="background-color: azure;" class="tile-content-conf">
+      <button mat-fab extended class="action-button-conf" (click)="openDialog()">
+        Configuration
+      </button>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>

@@ -1,0 +1,32 @@
+
+mat-card {
+  width: 95%;                /* Asegurarse de que la tarjeta ocupe todo el ancho */
+  height: 90%;               /* Asegurarse de que la tarjeta ocupe toda la altura */
+}
+
+.mat-grid-tile-content{
+  align-items: flex-start;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+mat-card img {
+  width: fit-content;
+  margin: 0 auto;
+  height: 80%;
+}
+
+.action-buttons {
+  display: flex;               /* Activar Flexbox */
+  justify-content: space-between; /* Distribuir espacio entre los botones */
+  width: 100%;                /* Asegurarse de que el contenedor ocupe todo el ancho */
+  background-color: floralwhite
+}
+
+.full-width-button {
+  flex: 1;                    /* Hacer que cada botón ocupe el mismo espacio */
+  margin: 0;                 /* Eliminar márgenes para evitar espacios no deseados */
+}
