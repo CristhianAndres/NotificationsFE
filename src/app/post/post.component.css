@@ -4,11 +4,11 @@
   width: 100%; /* Asegúrate de que la barra de herramientas ocupe todo el ancho */
 }
 
-.container {
+.container-post {
   margin: 5; /* Sin márgenes */
   padding: 5; /* Sin padding */
   height: 100%; /* Puede ser el valor que necesites */
-  width: 98%; /* Puede ser el valor que necesites */
+  width: 97%; /* Puede ser el valor que necesites */
 }
 
 .tile-content-text-image {
@@ -17,8 +17,8 @@
   align-items: flex-start;   /* Alinear todos los elementos al inicio (izquierda) */
   justify-content: flex-start; /* Alinear al inicio (parte superior) */
   height: 100%;              /* Asegurarse de que el contenedor ocupe toda la altura */
-  padding: 8px;             /* Espaciado interno opcional */
   background-color: darkseagreen;
+  padding: 0px 10px;
 }
 
 .tile-content-text-image-div {
@@ -30,22 +30,49 @@
     box-sizing: border-box;      /* Incluir padding en el cálculo de ancho y alto */
 }
 
-.action-button {
-  /*width: 150px;*/
-  width: 100%;
-  flex: 1;                    /* Cada botón ocupa el mismo espacio */
-  margin: 0 70px;          /* Espacio entre los botones */
+.action-button-post {
+      width: 100%;
+      flex: 1;
+      margin: 0px 20px;
+      height: auto;
 }
 
 .action-button-save {
-  width: 100%;
+  width: 75%;
 }
 
-.tile-contentb {
+.dropdown-groups {
+  width: 80%;
+  height: 70%;
+}
+
+.tile-content-button-photos {
   display: flex;               /* Activar Flexbox */
   flex-direction: column;      /* Alinear elementos en columna */
   align-items: flex-start;     /* Alinear todos los elementos al inicio (izquierda) */
   height: 100%;                /* Asegurarse de que el contenedor ocupe toda la altura del tile */
   padding: 16px;               /* Espaciado interno opcional */
   box-sizing: border-box;      /* Incluir padding en el cálculo de ancho y alto */
+  background-color: darkseagreen;
+}
+
+.tile-content-photos {
+  border: 1px solid #007bff; /* Cambia el color y el grosor según tus necesidades */
+    overflow: auto;           /* Activar el desplazamiento cuando el contenido excede el tamaño */
+    box-sizing: border-box;   /* Incluir padding en el cálculo de altura y anchura */
+    background-color: darkseagreen;
+}
+
+.custom-list-item {
+    margin: 0; /* Elimina el margen */
+    padding: 4px 16px; /* Ajusta el padding según tus necesidades */
+}
+
+.tile-content-list-files-div {
+  display: flex;               /* Activar Flexbox */
+    flex-direction: column;      /* Alinear elementos en columna */
+    align-items: flex-start;     /* Alinear todos los elementos al inicio (parte superior) */
+    height: 100%;                /* Asegurarse de que el contenedor ocupe toda la altura del tile */
+    padding: 0px;               /* Espaciado interno opcional */
+    box-sizing: border-box;      /* Incluir padding en el cálculo de ancho y alto */
 }
