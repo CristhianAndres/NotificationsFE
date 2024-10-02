@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Importa CommonModule
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms'; // Asegúrate de incluir e
 import { MatInputModule } from '@angular/material/input';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user-information',
@@ -16,11 +17,13 @@ import {MatButtonModule} from '@angular/material/button';
   templateUrl: './user-information.component.html',
   styleUrl: './user-information.component.css'
 })
+
 export class UserInformationComponent implements OnInit {
 
 userForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder)
+  {
     this.userForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],

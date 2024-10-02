@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, inject, model, signal, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Importa CommonModule
-import {MatTable, MatTableModule} from '@angular/material/table';
+import {MatTable, MatTableModule, MatTableDataSource} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -15,8 +15,13 @@ import {
   MatDialogTitle,
   MatDialogModule
 } from '@angular/material/dialog';
+import { Apollo, gql } from 'apollo-angular';
 
 import { UserInformationComponent } from '../user-information/user-information.component';
+
+//User, Group service
+import { UserService } from '..//services/user.service';
+import { GroupService } from '..//services/group.service';
 
 export interface User {
   name: string;
@@ -41,59 +46,46 @@ export interface Group {
   templateUrl: './configuration.component.html',
   styleUrl: './configuration.component.css'
 })
-export class ConfigurationComponent {
+export class ConfigurationComponent implements OnInit {
 
-readonly dialog = inject(MatDialog);
+  readonly dialog = inject(MatDialog);
+  private userService = inject(UserService);
+  private groupService = inject(GroupService);
 
-isTileUserVisible: boolean = true; // Inicialmente el tile es visible
-isTileGroupVisible: boolean = false; // Inicialmente el tile es visible
+  users : User[] = [];
+  loading = true;
+  error: any;
+  displayedColumnsUsers: string[] = ['id', 'name', 'email', 'userName', 'birthday', 'gender', 'role', 'actions'];
+  dataSourceUsers = new MatTableDataSource<any>();
+  displayedColumnsGroups: string[] = ['id', 'nameGroup', 'actionsGroup'];
+  dataSourceGroups = new MatTableDataSource<any>();
 
-  users : User[] = [
-        { name: 'Carlos Garcia', email: 'example@example.com', userName: 'agarcia',
-          birthday: '12-01-1992', gender: 'Male', role: 'admin', actions: ''},
-        { name: 'Carlos Garcia', email: 'example@example.com', userName: 'agarcia',
-          birthday: '12-01-1992', gender: 'Male', role: 'admin', actions: ''},
-        { name: 'Carlos Garcia', email: 'example@example.com', userName: 'agarcia',
-          birthday: '12-01-1992', gender: 'Male', role: 'admin', actions: ''},
-        { name: 'Carlos Garcia', email: 'example@example.com', userName: 'agarcia',
-          birthday: '12-01-1992', gender: 'Male', role: 'admin', actions: ''},
-        { name: 'Carlos Garcia', email: 'example@example.com', userName: 'agarcia',
-          birthday: '12-01-1992', gender: 'Male', role: 'admin', actions: ''},
-        { name: 'Carlos Garcia', email: 'example@example.com', userName: 'agarcia',
-          birthday: '12-01-1992', gender: 'Male', role: 'admin', actions: ''}
-    ];
+  isTileUserVisible: boolean = true; // Inicialmente el tile es visible
+  isTileGroupVisible: boolean = false; // Inicialmente el tile es visible
 
-  displayedColumnsUsers: string[] = ['name', 'email', 'userName', 'birthday', 'gender', 'role', 'actions'];
-  dataSourceUsers = [...this.users];
-
-  //@ViewChild(MatTable) table!: MatTable<User>;
-
-  groups : Group[] = [
-          { nameGroup: 'Group', id: '1', actionsGroup: ''},
-          { nameGroup: 'Group', id: '2', actionsGroup: ''},
-          { nameGroup: 'Group', id: '3', actionsGroup: ''},
-          { nameGroup: 'Group', id: '4', actionsGroup: ''}
-      ];
-
-    displayedColumnsGroups: string[] = ['id', 'nameGroup', 'actionsGroup'];
-    dataSourceGroups = [...this.groups];
-
-    //@ViewChild(MatTable) table!: MatTable<Group>;
+  constructor() {
+    //this.userService.getUsers().subscribe((data) => (this.users = data));
+  }
+  ngOnInit() {
+    this.userService.getUsers().subscribe((data) =>
+      (this.dataSourceUsers.data = data)
+    );
+    this.groupService.getGroups().subscribe((data) =>
+      (this.dataSourceGroups.data = data)
+    );
+  }
 
   openDialogUser(): void {
     this.isTileUserVisible = !this.isTileUserVisible; // Cambiar el estado de visibilidad
     this.isTileGroupVisible = !this.isTileGroupVisible;
   };
-  openDialogActor(): void {
+  openDialogActor(): void {};
+  openDialogTopic(): void {};
 
-          };
-  openDialogTopic(): void {
-
-          };
   openDialogGroup(): void {
-this.isTileUserVisible = !this.isTileUserVisible; // Cambiar el estado de visibilidad
+    this.isTileUserVisible = !this.isTileUserVisible; // Cambiar el estado de visibilidad
     this.isTileGroupVisible = !this.isTileGroupVisible;
-          };
+  };
 
   openCreateUser(): void {
         const dialogRef = this.dialog.open(UserInformationComponent, {
@@ -111,7 +103,7 @@ this.isTileUserVisible = !this.isTileUserVisible; // Cambiar el estado de visibi
 
    editUser(user: User) : void {
         const dialogRef = this.dialog.open(UserInformationComponent, {
-          data: {},
+          data: {user},
            width: '90%', // Ajusta el ancho según sea necesario
            height: '100%', // Ajusta la altura según sea necesario
            maxWidth: '600px', // Puedes establecer un tamaño máximo
@@ -120,6 +112,13 @@ this.isTileUserVisible = !this.isTileUserVisible; // Cambiar el estado de visibi
 
         dialogRef.afterClosed().subscribe(result => {
           console.log('The dialog was closed');
+          /*if (result) {
+            const index = this.dataSourceUsers.data.findIndex(item => item.id === result.id);
+            if (index !== -1) {
+              this.dataSourceUsers.data[index] = result; // Actualiza el registro en el dataSource
+              this.dataSourceUsers.data = [...this.dataSourceUsers.data]; // Forzar la actualización de la tabla
+            }
+          }*/
         });
       };
 
