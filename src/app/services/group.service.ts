@@ -8,22 +8,23 @@ import { map } from 'rxjs/operators';
 })
 export class GroupService {
 
-  private PATH = "/graphql";
-  private HOST = "http://localhost:4000";
-  private fullUrl = this.HOST + this.PATH;
-
   constructor(private apollo: Apollo) { }
 
   getGroups(): Observable<any> {
-    console.log(this.fullUrl);
     return this.apollo
-      .watchQuery({
+      .watchQuery<any>({
         query: gql`
           {
             groups {
-              nameGroup
               id
-              actionsGroup
+              createAt
+              updateAt
+              name
+              nameForSearch
+              color
+              admin {
+                id
+              }
             }
           }
         `

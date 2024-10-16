@@ -81,9 +81,9 @@ export class NewsFeedComponent implements OnInit{
         const dialogRef = this.dialog.open(ConfigurationComponent, {
           data: {},
            width: '100%', // Ajusta el ancho según sea necesario
-           height: '90%', // Ajusta la altura según sea necesario
-           maxWidth: '1000px', // Puedes establecer un tamaño máximo
-           maxHeight: '600px', // Puedes establecer un tamaño máximo
+           height: '100%', // Ajusta la altura según sea necesario
+           maxWidth: '1300px', // Puedes establecer un tamaño máximo
+           maxHeight: '750px', // Puedes establecer un tamaño máximo
         });
 
         dialogRef.afterClosed().subscribe(result => {

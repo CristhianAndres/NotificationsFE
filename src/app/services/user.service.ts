@@ -8,27 +8,33 @@ import { map } from 'rxjs/operators';
 })
 export class UserService {
 
-  private PATH = "/graphql";
+  /*private PATH = "/graphql";
   private HOST = "http://localhost:4000";
-  private fullUrl = this.HOST + this.PATH;
+  private fullUrl = this.HOST + this.PATH;*/
 
   constructor(private apollo: Apollo) { }
 
   getUsers(): Observable<any> {
-    console.log(this.fullUrl);
+    //console.log(this.fullUrl);
     return this.apollo
-      .watchQuery({
+      .watchQuery<any>({
         query: gql`
           {
             users {
               id
-              name
+              createAt
+              updateAt
+              firstName
+              firstNameForSearch
+              lastName
+              lastNameForSearch
               email
+              emailForSearch
               userName
+              userNameForSearch
+              password
               birthday
               gender
-              role
-              actions
             }
           }
         `
@@ -36,5 +42,9 @@ export class UserService {
       .valueChanges.pipe(map((result: any) =>
         result.data.users
       ));
+      /*.valueChanges.subscribe(({ data, loading }) => {
+              this.loading = loading;
+              this.posts = data.posts;
+            });*/
+    }
   }
-}

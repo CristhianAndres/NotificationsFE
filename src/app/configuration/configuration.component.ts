@@ -23,7 +23,10 @@ import { UserInformationComponent } from '../user-information/user-information.c
 import { UserService } from '..//services/user.service';
 import { GroupService } from '..//services/group.service';
 
-export interface User {
+//User, Group model
+import {User} from '../models/User.d';
+
+/*export interface User {
   name: string;
   email: string;
   userName: string;
@@ -31,7 +34,7 @@ export interface User {
   gender: string;
   role: string;
   actions: string;
-}
+}*/
 
 export interface Group {
   nameGroup: string;
@@ -55,9 +58,9 @@ export class ConfigurationComponent implements OnInit {
   users : User[] = [];
   loading = true;
   error: any;
-  displayedColumnsUsers: string[] = ['id', 'name', 'email', 'userName', 'birthday', 'gender', 'role', 'actions'];
+  displayedColumnsUsers: string[] = ['id', 'createAt', 'updateAt', 'firstName', 'firstNameForSearch', 'lastName', 'lastNameForSearch', 'email']
   dataSourceUsers = new MatTableDataSource<any>();
-  displayedColumnsGroups: string[] = ['id', 'nameGroup', 'actionsGroup'];
+  displayedColumnsGroups: string[] = ['id', 'createAt', 'updateAt', 'name', 'nameForSearch', 'color', 'admin.id'];
   dataSourceGroups = new MatTableDataSource<any>();
 
   isTileUserVisible: boolean = true; // Inicialmente el tile es visible
@@ -67,11 +70,31 @@ export class ConfigurationComponent implements OnInit {
     //this.userService.getUsers().subscribe((data) => (this.users = data));
   }
   ngOnInit() {
-    this.userService.getUsers().subscribe((data) =>
+    /*this.userService.getUsers().subscribe((data) =>
       (this.dataSourceUsers.data = data)
+    );*/
+    this.userService.getUsers().subscribe(
+      response => {
+        this.dataSourceUsers.data = response;
+        console.log(this.dataSourceUsers.data);
+        //this.displayedColumnsUsers = this.dataSourceUsers.data[0].obtenerAtributos();
+      },
+      error => {
+        console.error('Error al obtener datos', error);
+      }
     );
-    this.groupService.getGroups().subscribe((data) =>
+    /*this.groupService.getGroups().subscribe((data) =>
       (this.dataSourceGroups.data = data)
+    );*/
+    this.groupService.getGroups().subscribe(
+      response => {
+        this.dataSourceGroups.data = response;
+        console.log(this.dataSourceGroups.data);
+        //this.displayedColumnsUsers = this.dataSourceUsers.data[0].obtenerAtributos();
+      },
+      error => {
+        console.error('Error al obtener datos', error);
+      }
     );
   }
 
