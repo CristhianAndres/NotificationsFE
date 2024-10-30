@@ -42,10 +42,10 @@ export class UsersListCheckComponent {
 
   update(user: User, completed: boolean, index?: number) {
     if(completed){
-      this.belongsTo.push({
+      /*this.belongsTo.push({
         userId : user.id,
         groupId : '1'
-      })
+      })*/
     }
   }
 
