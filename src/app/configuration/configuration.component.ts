@@ -1,10 +1,10 @@
-import {ChangeDetectionStrategy, Component, inject, model, signal, OnInit, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Importa CommonModule
+import {ChangeDetectionStrategy, Component, inject, model, signal, OnInit, ViewChild} from '@angular/core';
+import {CommonModule} from '@angular/common'; // Importa CommonModule
 import {MatTable, MatTableModule, MatTableDataSource} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { MatIconModule } from '@angular/material/icon';
+import {MatIconModule} from '@angular/material/icon';
 import {
   MAT_DIALOG_DATA,
   MatDialog,
@@ -15,32 +15,28 @@ import {
   MatDialogTitle,
   MatDialogModule
 } from '@angular/material/dialog';
-import { Apollo, gql } from 'apollo-angular';
+import {Apollo, gql} from 'apollo-angular';
+import {HttpErrorResponse} from '@angular/common/http';
 
-import { UserInformationComponent } from '../user-information/user-information.component';
+import {UserInformationComponent} from '../user-information/user-information.component';
+import {GroupInformationComponent} from '../group-information/group-information.component';
 
 //User, Group service
-import { UserService } from '..//services/user.service';
-import { GroupService } from '..//services/group.service';
+import {UserService} from '../services/user.service';
+import {GroupService} from '../services/group.service';
 
 //User, Group model
-import {User} from '../models/User.d';
+import {User} from '../models/User';
+import {Group} from '../models/Group';
 
-/*export interface User {
-  name: string;
-  email: string;
-  userName: string;
-  birthday: string;
-  gender: string;
-  role: string;
-  actions: string;
-}*/
+const backgroundColorSelected: string = '#1abc9c';  // seleccionado
+const backgroundColorNotSelected: string = '#ebf5fb';  // no seleccionado
 
-export interface Group {
+/*export interface Group {
   nameGroup: string;
   id: string;
   actionsGroup: string;
-}
+}*/
 
 @Component({
   selector: 'app-configuration',
@@ -55,42 +51,29 @@ export class ConfigurationComponent implements OnInit {
   private userService = inject(UserService);
   private groupService = inject(GroupService);
 
-  users : User[] = [];
+  users: User[] = [];
   loading = true;
   error: any;
-  displayedColumnsUsers: string[] = ['id', 'createAt', 'updateAt', 'firstName', 'firstNameForSearch', 'lastName', 'lastNameForSearch', 'email']
+  displayedColumnsUsers: string[] = ['id', 'createAt', 'updateAt', 'firstName', 'firstNameForSearch', 'lastName', 'lastNameForSearch', 'email', 'emailForSearch', 'userName', 'userNameForSearch',/* 'password', */'birthday', 'gender', 'address',/* 'aboutMe',*/ 'actions'];
   dataSourceUsers = new MatTableDataSource<any>();
-  displayedColumnsGroups: string[] = ['id', 'createAt', 'updateAt', 'name', 'nameForSearch', 'color', 'admin.id'];
+  displayedColumnsGroups: string[] = ['id', 'createAt', 'updateAt', 'name', 'nameForSearch', 'color', 'admin.id', 'actions'];
   dataSourceGroups = new MatTableDataSource<any>();
 
   isTileUserVisible: boolean = true; // Inicialmente el tile es visible
+  backgroundColorUser: string = backgroundColorSelected;
+
   isTileGroupVisible: boolean = false; // Inicialmente el tile es visible
+  backgroundColorGroup: string = backgroundColorNotSelected;
 
   constructor() {
-    //this.userService.getUsers().subscribe((data) => (this.users = data));
+
   }
-  ngOnInit() {
-    /*this.userService.getUsers().subscribe((data) =>
-      (this.dataSourceUsers.data = data)
-    );*/
+
+  loadUsers(): void {
     this.userService.getUsers().subscribe(
       response => {
         this.dataSourceUsers.data = response;
         console.log(this.dataSourceUsers.data);
-        //this.displayedColumnsUsers = this.dataSourceUsers.data[0].obtenerAtributos();
-      },
-      error => {
-        console.error('Error al obtener datos', error);
-      }
-    );
-    /*this.groupService.getGroups().subscribe((data) =>
-      (this.dataSourceGroups.data = data)
-    );*/
-    this.groupService.getGroups().subscribe(
-      response => {
-        this.dataSourceGroups.data = response;
-        console.log(this.dataSourceGroups.data);
-        //this.displayedColumnsUsers = this.dataSourceUsers.data[0].obtenerAtributos();
       },
       error => {
         console.error('Error al obtener datos', error);
@@ -98,55 +81,130 @@ export class ConfigurationComponent implements OnInit {
     );
   }
 
+  loadGroups(): void {
+    this.groupService.getGroups().subscribe(
+      response => {
+        this.dataSourceGroups.data = response;
+        console.log(this.dataSourceGroups.data);
+      },
+      error => {
+        console.error('Error al obtener datos', error);
+      }
+    );
+  }
+
+  ngOnInit() {
+    this.loadUsers();
+    this.loadGroups();
+  }
+
   openDialogUser(): void {
-    this.isTileUserVisible = !this.isTileUserVisible; // Cambiar el estado de visibilidad
-    this.isTileGroupVisible = !this.isTileGroupVisible;
+    if (!this.isTileUserVisible) {
+      this.isTileUserVisible = !this.isTileUserVisible; // Cambiar el estado de visibilidad
+      this.isTileGroupVisible = !this.isTileGroupVisible;
+
+      this.backgroundColorUser = backgroundColorSelected;
+      this.backgroundColorGroup = backgroundColorNotSelected
+    }
   };
-  openDialogActor(): void {};
-  openDialogTopic(): void {};
+
+  openDialogActor(): void {
+  };
+
+  openDialogTopic(): void {
+  };
 
   openDialogGroup(): void {
-    this.isTileUserVisible = !this.isTileUserVisible; // Cambiar el estado de visibilidad
-    this.isTileGroupVisible = !this.isTileGroupVisible;
+    if (!this.isTileGroupVisible) {
+      this.isTileUserVisible = !this.isTileUserVisible; // Cambiar el estado de visibilidad
+      this.isTileGroupVisible = !this.isTileGroupVisible;
+
+      this.backgroundColorGroup = backgroundColorSelected;
+      this.backgroundColorUser = backgroundColorNotSelected
+    }
   };
 
   openCreateUser(): void {
-        const dialogRef = this.dialog.open(UserInformationComponent, {
-          data: {},
-           width: '90%', // Ajusta el ancho según sea necesario
-           height: '100%', // Ajusta la altura según sea necesario
-           maxWidth: '600px', // Puedes establecer un tamaño máximo
-           maxHeight: '600px', // Puedes establecer un tamaño máximo
-        });
+    const dialogRef = this.dialog.open(UserInformationComponent, {
+      width: '90%', // Ajusta el ancho según sea necesario
+      height: '100%', // Ajusta la altura según sea necesario
+      maxWidth: '900px', // Puedes establecer un tamaño máximo
+      maxHeight: '700px', // Puedes establecer un tamaño máximo
+    });
 
-        dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed');
-        });
-      };
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.loadUsers();
+    });
+  };
 
-   editUser(user: User) : void {
-        const dialogRef = this.dialog.open(UserInformationComponent, {
-          data: {user},
-           width: '90%', // Ajusta el ancho según sea necesario
-           height: '100%', // Ajusta la altura según sea necesario
-           maxWidth: '600px', // Puedes establecer un tamaño máximo
-           maxHeight: '600px', // Puedes establecer un tamaño máximo
-        });
+  editUser(user: User): void {
+    const dialogRef = this.dialog.open(UserInformationComponent, {
+      data: user,
+      width: '90%', // Ajusta el ancho según sea necesario
+      height: '100%', // Ajusta la altura según sea necesario
+      maxWidth: '900px', // Puedes establecer un tamaño máximo
+      maxHeight: '700px', // Puedes establecer un tamaño máximo
+    });
 
-        dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed');
-          /*if (result) {
-            const index = this.dataSourceUsers.data.findIndex(item => item.id === result.id);
-            if (index !== -1) {
-              this.dataSourceUsers.data[index] = result; // Actualiza el registro en el dataSource
-              this.dataSourceUsers.data = [...this.dataSourceUsers.data]; // Forzar la actualización de la tabla
-            }
-          }*/
-        });
-      };
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.loadUsers();
+    });
+  };
 
-    deleteUser(user: User) {
-      console.log('Eliminando:', user);
-      // Aquí puedes implementar la lógica para eliminar al usuario
-    }
+  deleteUser(user: User) {
+    console.log('Elimination:', user);
+    this.userService.deleteUser(user).subscribe(
+      (data: User) => {
+        this.loadUsers();
+        console.log('got data', data);
+      },
+      (error: HttpErrorResponse) => {
+        console.log('there was an error sending the query', error);
+      }
+    );
+  }
+
+  openCreateGroup(): void {
+    const dialogRef = this.dialog.open(GroupInformationComponent, {
+      width: '90%', // Ajusta el ancho según sea necesario
+      height: '100%', // Ajusta la altura según sea necesario
+      maxWidth: '900px', // Puedes establecer un tamaño máximo
+      maxHeight: '700px', // Puedes establecer un tamaño máximo
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.loadGroups();
+    });
+  };
+
+  editGroup(group: Group): void {
+    const dialogRef = this.dialog.open(GroupInformationComponent, {
+      data: group,
+      width: '90%', // Ajusta el ancho según sea necesario
+      height: '100%', // Ajusta la altura según sea necesario
+      maxWidth: '900px', // Puedes establecer un tamaño máximo
+      maxHeight: '700px', // Puedes establecer un tamaño máximo
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.loadGroups();
+    });
+  };
+
+  deleteGroup(group: Group) {
+    console.log('Elimination:', group);
+    this.groupService.deleteGroup(group).subscribe(
+      (data: Group) => {
+        this.loadGroups();
+        console.log('got data', data);
+      },
+      (error: HttpErrorResponse) => {
+        console.log('there was an error sending the query', error);
+      }
+    );
+  }
 }

@@ -1,0 +1,11 @@
+<span class="example-list-section">
+    <ul>
+      @for (user of users; track user; let i = $index) {
+        <li>
+          <mat-checkbox [checked]="user.completed" (change)="update(user, $event.checked, i)">
+            {{ user.firstName }} {{ user.lastName }}
+          </mat-checkbox>
+        </li>
+      }
+    </ul>
+</span>

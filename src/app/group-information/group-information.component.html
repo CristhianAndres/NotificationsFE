@@ -1,0 +1,43 @@
+<mat-toolbar>
+  <span>Group</span>
+  <span>-</span>
+  <span>{{ isEditMode ? ' Update' : ' Create' }}</span>
+</mat-toolbar>
+<div class="container-group-inf">
+
+  <form [formGroup]="groupForm" (ngSubmit)="onSubmit()" class="grid-form">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Name Search</mat-label>
+      <input matInput formControlName="nameForSearch">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Color</mat-label>
+      <input matInput formControlName="color">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Admin</mat-label>
+      <mat-select [(value)]="selectedAdmin">
+        <mat-option>None</mat-option>
+        @for (user of users; track user) {
+          <mat-option [value]="user.id">{{user.firstName}} - {{user.lastName}}</mat-option>
+        }
+      </mat-select>
+      <input matInput formControlName="userId">
+    </mat-form-field>
+
+    <button mat-fab extended class="action-button-save-group" (click)="openAddUsers()">
+      Add Users
+    </button>
+    <button mat-fab extended class="action-button-save-group" type="submit">
+      Save
+    </button>
+  </form>
+</div>

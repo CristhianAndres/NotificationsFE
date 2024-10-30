@@ -1,6 +1,6 @@
 /*import { Chat } from "../models/Chat";
 import { Post } from "../models/Post";*/
-import { User } from "../models/User";
+import { User } from "./User";
 //import { UserBelongsToGroup } from "../models/UserBelongsToGroup";
 //import { GroupCount } from "../resolvers/outputs/GroupCount";
 export declare class Group {
@@ -12,7 +12,7 @@ export declare class Group {
     color?: string | null;
     userId?: string | null;
     admin?: User | null;
-    //members?: UserBelongsToGroup[];
+    members?: UserBelongsToGroup[];
     //chats?: Chat[];
     //posts?: Post[];
     //_count?: GroupCount | null;

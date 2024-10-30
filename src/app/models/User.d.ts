@@ -12,6 +12,8 @@ import { Rol } from "../models/Rol";
 import { UserBelongsToGroup } from "../models/UserBelongsToGroup";
 import { UsersLikedPosts } from "../models/UsersLikedPosts";
 import { UserCount } from "../resolvers/outputs/UserCount";*/
+import {UserBelongsToGroup} from "./UserBelongsToGroup";
+
 export declare class User {
     id: string;
     createAt: Date;
@@ -34,11 +36,12 @@ export declare class User {
     gender: "MALE" | "FEMALE" | "UNSPECIFIED";
     address?: string | null;
     aboutMe?: string | null;
+    belongsTo?: UserBelongsToGroup[];
+    completed?: boolean;
     /*rol?: Rol[];
     messages?: Message[];
     chats?: Chat[];
     admimnOf?: Group[];
-    belongsTo?: UserBelongsToGroup[];
     createdPosts?: Post[];
     likedPosts?: UsersLikedPosts[];
     followPosts?: PostsFollowedByUsers[];
@@ -49,8 +52,13 @@ export declare class User {
     notifications?: ActionNotifiesToUser[];
     _count?: UserCount | null;*/
 
+  constructor(id: string){
+    this.id = id;
+  }
+
     obtenerAtributos(): string[] {
       // Extraer los nombres de los atributos en un array
       return Object.keys(this);
     }
+
 }

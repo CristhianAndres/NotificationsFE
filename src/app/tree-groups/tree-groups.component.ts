@@ -1,8 +1,10 @@
 import {FlatTreeControl} from '@angular/cdk/tree';
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule} from '@angular/material/tree';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {GroupService} from "../services/group.service";
+import {Group} from "../models/Group";
 
 /**
  * Food data with nested structure.
@@ -48,30 +50,46 @@ interface ExampleFlatNode {
 })
 export class TreeGroupsComponent {
   private _transformer = (node: FoodNode, level: number) => {
-      return {
-        expandable: !!node.children && node.children.length > 0,
-        name: node.name,
-        level: level,
-      };
+    return {
+      expandable: !!node.children && node.children.length > 0,
+      name: node.name,
+      level: level,
     };
+  };
 
-    treeControl = new FlatTreeControl<ExampleFlatNode>(
-      node => node.level,
-      node => node.expandable,
+  treeControl = new FlatTreeControl<ExampleFlatNode>(
+    node => node.level,
+    node => node.expandable,
+  );
+
+  treeFlattener = new MatTreeFlattener(
+    this._transformer,
+    node => node.level,
+    node => node.expandable,
+    node => node.children,
+  );
+
+  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
+
+  constructor() {
+    this.loadGroups();
+
+    this.dataSource.data = TREE_DATA;
+  }
+
+  hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+
+  private groupService = inject(GroupService);
+  groups: Group[] = []
+
+  loadGroups(): void {
+    this.groupService.getGroups().subscribe(
+      response => {
+        this.groups = response;
+      },
+      error => {
+        console.error('Error al obtener datos', error);
+      }
     );
-
-    treeFlattener = new MatTreeFlattener(
-      this._transformer,
-      node => node.level,
-      node => node.expandable,
-      node => node.children,
-    );
-
-    dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-
-    constructor() {
-      this.dataSource.data = TREE_DATA;
-    }
-
-    hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+  }
 }

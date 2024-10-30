@@ -6,7 +6,7 @@ button {
   margin-top: 16px; /* Espacio superior para el botón */
 }
 
-.container-user-inf {
+.container-group-inf {
   margin: 0px 15px;
   padding: 0; /* Sin padding */
   height: 100%; /* Puede ser el valor que necesites */
@@ -15,7 +15,7 @@ button {
 
 }
 
-.action-button-save-user {
+.action-button-save-group {
   width: 100%;
   height: 30px;
 }

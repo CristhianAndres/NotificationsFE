@@ -1,48 +1,91 @@
 <mat-toolbar>
   <span>User</span>
+  <span>-</span>
+  <span>{{ isEditMode ? ' Update' : ' Create' }}</span>
 </mat-toolbar>
 <div class="container-user-inf">
 
-  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="grid-form">
+
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
-      <input matInput formControlName="name" required>
+      <input matInput formControlName="firstName">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Name Search</mat-label>
+      <input matInput formControlName="firstNameForSearch">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name Search</mat-label>
+      <input matInput formControlName="lastNameForSearch">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>
-      <input matInput formControlName="email" required>
+      <input matInput formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email Search</mat-label>
+      <input matInput formControlName="emailForSearch">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Username</mat-label>
-      <input matInput formControlName="username" required>
+      <input matInput formControlName="userName">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>birthday</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="birthday" required>
+      <mat-label>Username Search</mat-label>
+      <input matInput formControlName="userNameForSearch">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Birthday</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="birthday">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Gender</mat-label>
-      <mat-select formControlName="gender" required>
-        <mat-option value="male">Male</mat-option>
-        <mat-option value="female">Female</mat-option>
-        <mat-option value="other">Other</mat-option>
+      <mat-select formControlName="gender">
+        <mat-option value="FEMALE">FEMALE</mat-option>
+        <mat-option value="MALE">MALE</mat-option>
+        <mat-option value="UNSPECIFIED">UNSPECIFIED</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="address">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>About me</mat-label>
+      <input matInput formControlName="aboutMe">
+    </mat-form-field>
+
+    <!--mat-form-field appearance="fill">
       <mat-label>Role</mat-label>
       <mat-select formControlName="role" required>
         <mat-option value="admin">Admin</mat-option>
         <mat-option value="user">User</mat-option>
         <mat-option value="guest">Guest</mat-option>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field-->
 
     <button mat-fab extended class="action-button-save-user" type="submit">
       Save
