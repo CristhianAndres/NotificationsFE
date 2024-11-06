@@ -29,6 +29,12 @@ export class GroupService {
               admin {
                 id
               }
+              members {
+                user {
+                  id
+                  userName
+                }
+              }
             }
           }
         `,
@@ -115,3 +121,34 @@ export class GroupService {
       })
   }
 }
+/*
+updateGroup(group: Group): Observable<any> {
+    //console.log(this.fullUrl);
+    const updateGroup: Record<string, { set: any } | { connect: { id: string } }> = {};
+    Object.entries(group).forEach(([key, value]) => {
+      if (key == 'userId') {
+        updateGroup['admin'] = {connect: {id: value}};
+      } else {
+        updateGroup[key] = {set: value}
+      }
+    });
+    //console.log(updateUser);
+    const id = group.id;
+    return this.apollo
+      .mutate({
+        mutation: gql`
+          mutation updateOneGroup($data: GroupUpdateInput!, $where: GroupWhereUniqueInput!){
+            updateOneGroup(data:$data, where:$where){
+              updateAt
+              name
+              nameForSearch
+              color
+            }
+          }`,
+        variables: {
+          data: updateGroup,
+          where: {id}
+        }
+      })
+  }
+* */

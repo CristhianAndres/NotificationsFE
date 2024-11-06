@@ -8,11 +8,12 @@ import {Group} from "../models/Group";
 //User, Group service
 import {UserService} from '../services/user.service';
 import {UserBelongsToGroup} from "../models/UserBelongsToGroup";
+import {MatFabButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-users-list-check',
   standalone: true,
-  imports: [MatCheckboxModule, FormsModule],
+  imports: [MatCheckboxModule, FormsModule, MatFabButton],
   templateUrl: './users-list-check.component.html',
   styleUrl: './users-list-check.component.css'
 })
@@ -33,6 +34,17 @@ export class UsersListCheckComponent {
     this.userService.getUsers().subscribe(
       response => {
         this.users = response;
+
+        if (this.group.members) {
+          this.group.members.forEach(member => {
+            const user = this.users.find((user: User) => {
+              return user.id === member.user.id;
+            });
+            if (user) {
+              user.completed = true; // Marca el campo completed como true
+            }
+          });
+        }
       },
       error => {
         console.error('Error al obtener datos', error);
@@ -41,12 +53,16 @@ export class UsersListCheckComponent {
   }
 
   update(user: User, completed: boolean, index?: number) {
-    if(completed){
+    if (completed) {
       /*this.belongsTo.push({
         userId : user.id,
         groupId : '1'
       })*/
     }
+  }
+
+  saveUsers() {
+
   }
 
 }
