@@ -80,12 +80,6 @@ export class GroupService {
   }
 
   updateGroup(group: Group): Observable<any> {
-    //console.log(this.fullUrl);
-    /*const updateGroup: Record<string, { set: any } |
-                            { connect : { id: string } } |
-                            { create? : [{ user : { connect : { id : string} } }],
-                              delete? : [{ id : string }]}> = {};*/
-    //const idsMembers : string[] = ;
     const updateGroup: UpdateGroup = {};
     Object.entries(group).forEach(([key, value]) => {
       if (key == 'members') {
@@ -176,36 +170,3 @@ interface UpdateGroup {
   };
   [key: string]: { set: any } | { connect: { id: string } } | { members?: { create?: CreateMember[]; delete?: DeleteMember[] } } | undefined;
 }
-
-
-/*
-updateGroup(group: Group): Observable<any> {
-    //console.log(this.fullUrl);
-    const updateGroup: Record<string, { set: any } | { connect: { id: string } }> = {};
-    Object.entries(group).forEach(([key, value]) => {
-      if (key == 'userId') {
-        updateGroup['admin'] = {connect: {id: value}};
-      } else {
-        updateGroup[key] = {set: value}
-      }
-    });
-    //console.log(updateUser);
-    const id = group.id;
-    return this.apollo
-      .mutate({
-        mutation: gql`
-          mutation updateOneGroup($data: GroupUpdateInput!, $where: GroupWhereUniqueInput!){
-            updateOneGroup(data:$data, where:$where){
-              updateAt
-              name
-              nameForSearch
-              color
-            }
-          }`,
-        variables: {
-          data: updateGroup,
-          where: {id}
-        }
-      })
-  }
-* */

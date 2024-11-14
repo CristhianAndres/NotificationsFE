@@ -42,7 +42,7 @@ export class GroupInformationComponent {
     @Inject(MAT_DIALOG_DATA) public group: Group
   ) {
     this.isEditMode = !!group; // Establecer el modo basado en la presencia de datos
-    //this.loadUsers();
+    this.loadUsers();
     //this.userAdmin = new User("");
 
     this.groupForm = this.fb.group({
@@ -101,7 +101,7 @@ export class GroupInformationComponent {
     }
   }
 
-  /*loadUsers(): void {
+  loadUsers(): void {
     this.userService.getUsers().subscribe(
       response => {
         this.users = response;
@@ -110,7 +110,7 @@ export class GroupInformationComponent {
         console.error('Error al obtener datos', error);
       }
     );
-  }*/
+  }
 
   openAddUsers(): void {
     const dialogRefUsersList = this.dialog.open(UsersListCheckComponent, {

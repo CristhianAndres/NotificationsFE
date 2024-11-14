@@ -36,7 +36,7 @@ export class UsersListCheckComponent {
       response => {
         this.users = response;
 
-        if (this.group.members) {
+        if (this.group?.members) {
           this.group.members.forEach(member => {
             const user = this.users.find((user: User) => {
               return user.id === member.user.id;
@@ -55,6 +55,9 @@ export class UsersListCheckComponent {
 
   update(user: User, completed: boolean, index?: number) {
     if (completed) {
+      if(!this.group.members){
+        this.group.members = [];
+      }
       //asignar usuario a grupo
       if (this.group.members) {
         //const userBelongstoGroup : UserBelongsToGroup = new UserBelongsToGroup(user);
