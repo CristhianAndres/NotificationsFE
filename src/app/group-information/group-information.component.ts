@@ -87,6 +87,8 @@ export class GroupInformationComponent {
         );
       } else {
         group.id = this.group.id;
+        group.members = this.group.members;
+        group.membersToDeleted = this.group.membersToDeleted;
         this.groupService.updateGroup(group).subscribe(
           (data: Group) => {
             this.dialogRef.close();
@@ -121,7 +123,9 @@ export class GroupInformationComponent {
 
     dialogRefUsersList.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      //this.loadUsers();
+      if (result !== undefined) {
+        //this.animal.set(result);
+      }
     });
   }
 }

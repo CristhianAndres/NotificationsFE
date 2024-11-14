@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, computed, inject, Inject, signal} fr
 import {FormBuilder, FormsModule, Validators} from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {User} from "../models/User";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Group} from "../models/Group";
 
 //User, Group service
@@ -22,6 +22,7 @@ export class UsersListCheckComponent {
   private userService = inject(UserService);
   users: User[] = [];
   belongsTo: UserBelongsToGroup[] = [];
+  readonly dialogRef = inject(MatDialogRef<UsersListCheckComponent>);
 
   constructor(
     private fb: FormBuilder,
@@ -54,15 +55,31 @@ export class UsersListCheckComponent {
 
   update(user: User, completed: boolean, index?: number) {
     if (completed) {
-      /*this.belongsTo.push({
-        userId : user.id,
-        groupId : '1'
-      })*/
+      //asignar usuario a grupo
+      if (this.group.members) {
+        //const userBelongstoGroup : UserBelongsToGroup = new UserBelongsToGroup(user);
+        this.group.members.push({user});
+      }
+    } else {
+      //desasignar usuario a grupo
+      let idToDeleted = user.id;
+      if(!this.group.membersToDeleted){
+        this.group.membersToDeleted = [];
+      }
+      if (this.group.members) {
+        const index = this.group.members.findIndex(userBelToGroup => userBelToGroup.user.id === idToDeleted);
+        if (index !== -1) {
+          if(this.group.members[index].id){
+            this.group.membersToDeleted?.push(this.group.members[index].id);
+          }
+          this.group.members.splice(index, 1); // Elimina el elemento en el índice encontrado
+        }
+      }
     }
   }
 
   saveUsers() {
-
+    this.dialogRef.close();
   }
 
 }

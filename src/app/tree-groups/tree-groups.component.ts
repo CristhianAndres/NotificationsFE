@@ -1,37 +1,46 @@
-import {FlatTreeControl} from '@angular/cdk/tree';
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
 import {MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule} from '@angular/material/tree';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {FlatTreeControl} from '@angular/cdk/tree';
 import {GroupService} from "../services/group.service";
 import {Group} from "../models/Group";
+import {User} from "../models/User";
+import {UserService} from "../services/user.service";
+import {group} from "@angular/animations";
+import {UserBelongsToGroup} from "../models/UserBelongsToGroup";
+import {MatToolbar} from "@angular/material/toolbar";
 
 /**
  * Food data with nested structure.
  * Each node has a name and an optional list of children.
  */
-interface FoodNode {
+interface GroupUserNode {
   name: string;
-  children?: FoodNode[];
+  members?: GroupUserNode[];
+  id?: string;
+  typeObject?: "GROUP" | "USER";
 }
 
-const TREE_DATA: FoodNode[] = [
+const TREE_DATA: GroupUserNode[] = [
   {
-    name: 'View all',
+    name: 'Fruit',
+    members: [{name: 'Apple'}, {name: 'Banana'}, {name: 'Fruit loops'}],
   },
   {
-    name: 'Group 1',
-    children: [{name: 'Post'}, {name: 'People'}],
-  },
-  {
-    name: 'Group 2',
-    children: [{name: 'Post'}, {name: 'People'}],
-  },
-  {
-    name: 'Group 3',
-    children: [{name: 'Post'}, {name: 'People'}],
+    name: 'Vegetables',
+    members: [
+      {
+        name: 'Green'
+      },
+      {
+        name: 'Orange'
+      },
+    ],
   },
 ];
+
+const TREE_DATA_GROUP_USERS: GroupUserNode[] = [];
 
 /** Flat node with expandable and level information */
 interface ExampleFlatNode {
@@ -45,13 +54,15 @@ interface ExampleFlatNode {
   templateUrl: './tree-groups.component.html',
   styleUrl: './tree-groups.component.css',
   standalone: true,
-  imports: [MatTreeModule, MatButtonModule, MatIconModule],
+  imports: [MatTreeModule, MatButtonModule, MatIconModule, MatToolbar],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TreeGroupsComponent {
-  private _transformer = (node: FoodNode, level: number) => {
+export class TreeGroupsComponent{
+  private groupService = inject(GroupService);
+
+  private _transformer = (node: GroupUserNode, level: number) => {
     return {
-      expandable: !!node.children && node.children.length > 0,
+      expandable: !!node.members && node.members.length > 0,
       name: node.name,
       level: level,
     };
@@ -66,30 +77,49 @@ export class TreeGroupsComponent {
     this._transformer,
     node => node.level,
     node => node.expandable,
-    node => node.children,
+    node => node.members,
   );
 
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
   constructor() {
+    //this.dataSource.data = TREE_DATA;
     this.loadGroups();
-
-    this.dataSource.data = TREE_DATA;
   }
 
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 
-  private groupService = inject(GroupService);
-  groups: Group[] = []
-
   loadGroups(): void {
     this.groupService.getGroups().subscribe(
       response => {
-        this.groups = response;
+        //this.groups = response;
+        //this.dataSource = this.groups; // Asigna los grupos al control del árbol
+        let groups : Group[] = response;
+        groups.forEach((group: Group) => {
+          let members : GroupUserNode[] = [];
+          if(group.members) {
+            group.members.forEach((member: UserBelongsToGroup) => {
+              members.push({
+                name: member.user?.firstName + ' ' + member.user?.lastName,
+                id: member.user?.id,
+                typeObject: "USER"
+              })
+            });
+          }
+          TREE_DATA_GROUP_USERS.push({
+            name: group.name,
+            members: members,
+            id : group.id,
+            typeObject: "GROUP"
+          })
+        });
+
+        this.dataSource.data = TREE_DATA_GROUP_USERS;
       },
       error => {
         console.error('Error al obtener datos', error);
       }
     );
   }
+
 }

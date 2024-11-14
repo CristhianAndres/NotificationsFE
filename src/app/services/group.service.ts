@@ -5,6 +5,7 @@ import {map} from 'rxjs/operators';
 //User, Group model
 import {Group} from '../models/Group';
 import {User} from "../models/User";
+import {UserBelongsToGroup} from "../models/UserBelongsToGroup";
 
 @Injectable({
   providedIn: 'root',
@@ -30,9 +31,12 @@ export class GroupService {
                 id
               }
               members {
+                id
                 user {
                   id
                   userName
+                  firstName
+                  lastName
                 }
               }
             }
@@ -77,10 +81,35 @@ export class GroupService {
 
   updateGroup(group: Group): Observable<any> {
     //console.log(this.fullUrl);
-    const updateGroup: Record<string, { set: any } | { connect: { id: string } }> = {};
+    /*const updateGroup: Record<string, { set: any } |
+                            { connect : { id: string } } |
+                            { create? : [{ user : { connect : { id : string} } }],
+                              delete? : [{ id : string }]}> = {};*/
+    //const idsMembers : string[] = ;
+    const updateGroup: UpdateGroup = {};
     Object.entries(group).forEach(([key, value]) => {
-      if (key == 'userId') {
+      if (key == 'members') {
+        // Inicializa members si aún no existe
+        updateGroup.members = updateGroup.members || {};
+        updateGroup.members.create = value
+          .filter((member: UserBelongsToGroup) => !member.id) // Filtra miembros que no tienen un id válido
+          .map((member: UserBelongsToGroup) => ({
+            user: {
+              connect: {
+                id: member.user?.id
+              }
+            }
+          }));
+
+      } else if (key == 'userId') {
         updateGroup['admin'] = {connect: {id: value}};
+
+      } else if (key == 'membersToDeleted') {
+        // Inicializa members si aún no existe
+        updateGroup.members = updateGroup.members || {};
+        updateGroup.members.delete = value?.map((memberToDelete: string) => ({
+          id: memberToDelete
+        }));
       } else {
         updateGroup[key] = {set: value}
       }
@@ -121,6 +150,34 @@ export class GroupService {
       })
   }
 }
+
+interface CreateMember {
+  user: {
+    connect: {
+      id: string;
+    };
+  };
+}
+
+interface DeleteMember {
+  id: string;
+}
+
+interface UpdateGroup {
+  // @ts-ignore
+  members?: {
+    create?: CreateMember[];
+    delete?: DeleteMember[];
+  };
+  admin?: {
+    connect: {
+      id: string;
+    };
+  };
+  [key: string]: { set: any } | { connect: { id: string } } | { members?: { create?: CreateMember[]; delete?: DeleteMember[] } } | undefined;
+}
+
+
 /*
 updateGroup(group: Group): Observable<any> {
     //console.log(this.fullUrl);

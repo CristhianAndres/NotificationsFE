@@ -13,6 +13,7 @@ export declare class Group {
     userId?: string | null;
     admin?: User | null;
     members?: UserBelongsToGroup[];
+    membersToDeleted?: string[];
     //chats?: Chat[];
     //posts?: Post[];
     //_count?: GroupCount | null;
