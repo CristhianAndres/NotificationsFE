@@ -49,7 +49,7 @@ export class GroupInformationComponent {
       name: ['', Validators.required],
       nameForSearch: [''],
       color: ['', Validators.required],
-      userId: ['']
+      userId: ['', Validators.required]
     });
 
     // Si data está definido, establece los valores del formulario
@@ -70,9 +70,6 @@ export class GroupInformationComponent {
       const group: Group = this.groupForm.value;
       const now = new Date();
       group.updateAt = now;
-      //this.userAdmin = new User(this.selectedAdmin);
-      //this.userAdmin.id = this.selectedAdmin;
-      //group.admin = this.userAdmin;
       // @ts-ignore
       group.userId = this.selectedAdmin
       if (!this.isEditMode) {

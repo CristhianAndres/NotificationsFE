@@ -6,18 +6,15 @@
 <div class="container-post">
   <mat-grid-list cols="4" rowHeight="80px">
 
-    <mat-grid-tile colspan="2" rowspan="1" style="background-color: lightblue;">
-      <app-dropdown-groups class="dropdown-groups">
-      </app-dropdown-groups>
+    <mat-grid-tile colspan="4" rowspan="1" style="background-color: lightblue; padding: 0px 10px;">
+      <app-dropdown-groups-title class="dropdown-groups">
+      </app-dropdown-groups-title>
     </mat-grid-tile>
 
     <mat-grid-tile colspan="4" rowspan="6" class="tile-content-text-image">
-      <div class="tile-content-text-image-div">
-        <app-text-image-post></app-text-image-post>
-      </div>
+        <app-text-image-post class="coment-image"></app-text-image-post>
     </mat-grid-tile>
 
-    <!-- botones -->
     <mat-grid-tile colspan="1" rowspan="2" class="tile-content-button-photos">
       <button mat-fab extended class="action-button-post" (click)="openDialog()">
         <mat-icon>monochrome_photos</mat-icon>
@@ -43,32 +40,8 @@
     <mat-grid-tile colspan="1" rowspan="2" style="background-color: darkseagreen; padding: 0px 10px;"></mat-grid-tile>
 
     <mat-grid-tile colspan="1" rowspan="2" class="tile-content-button-photos">
-      <button mat-fab extended class="action-button-post" (click)="openDialog()">
-        <mat-icon>monochrome_photos</mat-icon>
-        Add Actors
-      </button>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="2" rowspan="2" class="tile-content-photos">
-      <div class="tile-content-list-files-div">
-      <mat-list>
-        @for (document of documents; track document) {
-        <mat-list-item class="custom-list-item">
-          {{ document.name }}
-          <button mat-button (click)="onButtonClick(document.name)">
-            <mat-icon>delete_forever</mat-icon>
-          </button>
-        </mat-list-item>
-        }
-      </mat-list>
-      </div>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="1" rowspan="2" style="background-color: darkseagreen; padding: 0px 10px;"></mat-grid-tile>
-
-    <mat-grid-tile colspan="1" rowspan="2" class="tile-content-button-photos">
-      <button mat-fab extended class="action-button-post" (click)="openDialog()">
-        <mat-icon>monochrome_photos</mat-icon>
+      <button mat-fab extended class="action-button-post" (click)="openAddUsers()">
+        <mat-icon>account_box</mat-icon>
         Tag People
       </button>
     </mat-grid-tile>
@@ -76,10 +49,10 @@
     <mat-grid-tile colspan="2" rowspan="2" class="tile-content-photos">
       <div class="tile-content-list-files-div">
       <mat-list>
-        @for (tag of tags; track tag) {
+        @for (actor of actors; track actor) {
         <mat-list-item class="custom-list-item">
-          {{ tag.name }}
-          <button mat-button (click)="onButtonClick(tag.name)">
+          {{ actor.firstName }} {{ actor.lastName }}
+          <button mat-button (click)="onButtonClick(actor.id)">
             <mat-icon>delete_forever</mat-icon>
           </button>
         </mat-list-item>
@@ -90,9 +63,34 @@
 
     <mat-grid-tile colspan="1" rowspan="2" style="background-color: darkseagreen; padding: 0px 10px;"></mat-grid-tile>
 
+    <!--mat-grid-tile colspan="1" rowspan="1" class="tile-content-button-photos">
+      <button mat-fab extended class="action-button-post" (click)="newTopic()">
+        <mat-icon>create</mat-icon>
+        New Topic
+      </button>
+    </mat-grid-tile-->
+
+    <mat-grid-tile colspan="4" rowspan="1" style="background-color: darkseagreen; padding: 0px 10px;">
+      <div class="tile-content-topic-div">
+        <mat-form-field class="dropdown-title-post">
+          <mat-label>Topic Selected</mat-label>
+          <mat-select [(value)]="selectedTopic" (selectionChange)="onSelectChange()">
+            <mat-option>None</mat-option>
+            @for (topic of topics; track topic) {
+              <mat-option [value]="topic">{{ topic.name }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="dropdown-title-post-title">
+          <mat-label>New Topic</mat-label>
+          <input matInput [(ngModel)]="newTopicText" (change)="onTopicChange()">
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+
     <!-- boton para guardar -->
-    <mat-grid-tile colspan="4" rowspan="2">
-      <button mat-fab extended class="action-button-save">
+    <mat-grid-tile colspan="4" rowspan="1">
+      <button mat-fab extended class="action-button-save" type="submit" (click)="savePosts()">
         SAVE POST
       </button>
     </mat-grid-tile>

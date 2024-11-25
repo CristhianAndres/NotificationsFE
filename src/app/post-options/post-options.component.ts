@@ -1,15 +1,9 @@
 import {ChangeDetectionStrategy, Component, inject, model, signal} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import {FormsModule} from '@angular/forms';
 import {
   MAT_DIALOG_DATA,
   MatDialog,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogRef,
-  MatDialogTitle,
   MatDialogModule
 } from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';

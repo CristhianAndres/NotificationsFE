@@ -21,15 +21,6 @@
   padding: 0px 10px;
 }
 
-.tile-content-text-image-div {
-  display: flex;               /* Activar Flexbox */
-    flex-direction: column;      /* Alinear elementos en columna */
-    align-items: flex-start;     /* Alinear todos los elementos al inicio (parte superior) */
-    height: 100%;                /* Asegurarse de que el contenedor ocupe toda la altura del tile */
-    padding: 16px;               /* Espaciado interno opcional */
-    box-sizing: border-box;      /* Incluir padding en el cálculo de ancho y alto */
-}
-
 .action-button-post {
       width: 100%;
       flex: 1;
@@ -42,8 +33,13 @@
 }
 
 .dropdown-groups {
-  width: 80%;
+  width: 90%;
   height: 70%;
+}
+
+.coment-image{
+  width: 90%;
+  height: 95%;
 }
 
 .tile-content-button-photos {
@@ -61,6 +57,7 @@
     overflow: auto;           /* Activar el desplazamiento cuando el contenido excede el tamaño */
     box-sizing: border-box;   /* Incluir padding en el cálculo de altura y anchura */
     background-color: darkseagreen;
+    padding: 0px 10px;
 }
 
 .custom-list-item {
@@ -70,9 +67,21 @@
 
 .tile-content-list-files-div {
   display: flex;               /* Activar Flexbox */
-    flex-direction: column;      /* Alinear elementos en columna */
-    align-items: flex-start;     /* Alinear todos los elementos al inicio (parte superior) */
-    height: 100%;                /* Asegurarse de que el contenedor ocupe toda la altura del tile */
-    padding: 0px;               /* Espaciado interno opcional */
-    box-sizing: border-box;      /* Incluir padding en el cálculo de ancho y alto */
+  flex-direction: column;      /* Alinear elementos en columna */
+  align-items: flex-start;     /* Alinear todos los elementos al inicio (parte superior) */
+  height: 100%;                /* Asegurarse de que el contenedor ocupe toda la altura del tile */
+  padding: 0px;               /* Espaciado interno opcional */
+  box-sizing: border-box;      /* Incluir padding en el cálculo de ancho y alto */
+}
+
+.dropdown-title-post,
+.dropdown-title-post-title {
+  width: 100%; /* Asegúrate de que los campos ocupen el 100% del contenedor */
+}
+
+.tile-content-topic-div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+  gap: 10px; /* Espacio entre los campos */
+  width: 80%;
 }

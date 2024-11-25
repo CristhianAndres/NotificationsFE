@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill" class="example-full-width">
   <mat-label>Leave a comment</mat-label>
-  <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+  <textarea matInput placeholder="Ex. It is..." [(ngModel)]="info"></textarea>
   <mat-icon matSuffix>mode_edit</mat-icon>
 </mat-form-field>
 
@@ -9,10 +9,10 @@
     <mat-card-title>Cargar Imagen</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form [formGroup]="form">
+
         <mat-label>Seleccionar Imagen</mat-label>
         <input type="file" accept="image/*" (change)="onFileSelected($event)" />
-    </form>
+
     <div *ngIf="imageUrl" class="adjustable-div">
       <img mat-card-image [src]="imageUrl" alt="Imagen cargada" />
     </div>

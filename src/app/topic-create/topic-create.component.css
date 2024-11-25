@@ -1,0 +1,18 @@
+.action-button-save-topic {
+  width: 50%;
+  height: 30px;
+}
+
+.button-container {
+  display: flex; /* Usar flexbox para alinear los elementos */
+  justify-content: space-between; /* Espacio entre los botones, puedes ajustar según sea necesario */
+}
+
+.mat-form-field {
+  width: 100%; /* Asegúrate de que el campo ocupe todo el ancho */
+}
+
+.mat-dialog-content {
+  padding: 0; /* Elimina el padding si es necesario */
+  margin: 0; /* Elimina el margen si es necesario */
+}
