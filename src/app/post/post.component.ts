@@ -72,6 +72,7 @@ export class PostComponent {
 
   private topicService = inject(TopicService);
   private postService = inject(PostService);
+  readonly dialogRefPost = inject(MatDialogRef<PostComponent>);
 
   constructor() {
     this.loadTopics();
@@ -176,7 +177,8 @@ export class PostComponent {
       filename : 'img',
       mimetype : '',
       encoding : 'base64',
-      path : this.textImagePostComponent.imageUrl,
+      //path : this.textImagePostComponent.imageUrl,
+      path: "https://brevity.pro/wp-content/uploads/2023/07/Legaltech-y-competitividad-empresarial-un-cambio-de-juego-scaled.jpg",
       type: "IMAGE"
     });
 
@@ -199,7 +201,7 @@ export class PostComponent {
     }).subscribe(
       (data: User) => {
         console.log('got data', data);
-        //this.dialogRef.close();
+        this.dialogRefPost.close();
       },
       (error: HttpErrorResponse) => {
         console.log('there was an error sending the query', error);

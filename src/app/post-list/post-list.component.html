@@ -1,21 +1,21 @@
-
-
   <mat-grid-list cols="5">
-    @for (card of cards; track card) {
+    @for (post of posts; track post) {
       <mat-grid-tile colspan="5" rowspan="4">
         <mat-card appearance="outlined">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{ card.user }}</mat-card-title>
-            <mat-card-subtitle>{{ card.group }}</mat-card-subtitle>
+            <mat-card-title>{{ post.postedBy?.userName }} - {{ post.postedBy?.firstName }} {{ post.postedBy?.lastName }} </mat-card-title>
+            <mat-card-subtitle>Group : {{ post.belongsTo?.name }}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+
           <mat-card-content>
-            <p>{{ card.content }}</p>
+            <img mat-card-image *ngIf="post.mediafiles && post.mediafiles.length > 0" [src]="post.mediafiles[0].path" alt="Photo of a Shiba Inu">
+            <p>Topic : {{ post.topic?.name }}</p>
+            <p>Comment : {{ post.info }}</p>
           </mat-card-content>
-          <mat-card-actions class="action-buttons">
-            <button mat-button class="full-width-button">LIKE</button>
-            <button mat-button class="full-width-button">COMMENT</button>
+          <mat-card-actions >
+            <button mat-button >LIKE</button>
+            <button mat-button >COMMENT</button>
           </mat-card-actions>
         </mat-card>
       </mat-grid-tile>

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, model, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, model, Output, signal} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {
@@ -10,6 +10,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 
 import {PostComponent} from '../post/post.component';
+import EventEmitter from "node:events";
+import {PostCommunicationService} from "../post-communication.service";
 
 @Component({
   selector: 'app-post-options',
@@ -22,16 +24,24 @@ import {PostComponent} from '../post/post.component';
 export class PostOptionsComponent {
 
   readonly dialog = inject(MatDialog);
-  openDialog(): void {
-      const dialogRef = this.dialog.open(PostComponent, {
-        data: {},
-         width: '60%', // Ajusta el ancho según sea necesario
-         height: '95%', // Ajusta la altura según sea necesario
-         maxWidth: '900px', // Puedes establecer un tamaño máximo
-      });
 
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
-      });
-    }
+  constructor(private postCommunicationService: PostCommunicationService) {}
+  triggerUpdate() {
+    this.postCommunicationService.notifyPostListUpdate();
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(PostComponent, {
+      data: {},
+      width: '60%', // Ajusta el ancho según sea necesario
+      height: '95%', // Ajusta la altura según sea necesario
+      maxWidth: '900px', // Puedes establecer un tamaño máximo
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.postCommunicationService.notifyPostListUpdate();
+    });
+  }
+
 }
