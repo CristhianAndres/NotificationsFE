@@ -20,7 +20,7 @@
     <button (click)="uploadFiles()">Subir Archivos</button>
 
     <div *ngIf="selectedFiles.length > 0">
-      <h3>Archivos seleccionados:</h3>
+      <h4>Archivos seleccionados:</h4>
       <ul>
         <li *ngFor="let file of selectedFiles">{{ file.name }}</li>
       </ul>

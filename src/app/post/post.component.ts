@@ -48,27 +48,10 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 export class PostComponent {
 
-  photos = [
-    {name: 'photo 1'},
-    {name: 'photo 2'},
-    {name: 'photo 3'},
-    {name: 'photo 4'},
-    {name: 'photo 5'},
-    {name: 'photo 6'}
-  ];
-
   actors: User[] = [];
   topics: Topic[] = [];
   selectedTopic: any = {};
   newTopicText: any;
-
-  tags = [
-    {name: 'tag 1'},
-    {name: 'tag 2'},
-    {name: 'tag 3'},
-    {name: 'tag 4'},
-    {name: 'tag 5'}
-  ];
 
   private topicService = inject(TopicService);
   private postService = inject(PostService);
@@ -168,21 +151,6 @@ export class PostComponent {
       followedByUsers.push(postsFollowedByUsers)
     });
 
-    let mediaFiles : MediaFile[] = [];
-    // @ts-ignore
-    mediaFiles.push({
-      //id : '',
-      createAt : now,
-      updateAt : now,
-      filename : 'img',
-      mimetype : '',
-      encoding : 'base64',
-      //path : this.textImagePostComponent.imageUrl,
-      path: "https://brevity.pro/wp-content/uploads/2023/07/Legaltech-y-competitividad-empresarial-un-cambio-de-juego-scaled.jpg",
-      type: "IMAGE"
-    });
-
-
     this.postService.createPost({
       actorId: "", groupId: "", topicId: "", userId: "", id : "",
       createAt : now,
@@ -197,7 +165,7 @@ export class PostComponent {
       // @ts-ignore
       followedBy : followedByUsers,
       // @ts-ignore
-      mediafiles : mediaFiles
+      mediafiles : this.textImagePostComponent.mediaFiles
     }).subscribe(
       (data: User) => {
         console.log('got data', data);

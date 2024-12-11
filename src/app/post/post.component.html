@@ -16,30 +16,6 @@
     </mat-grid-tile>
 
     <mat-grid-tile colspan="1" rowspan="2" class="tile-content-button-photos">
-      <button mat-fab extended class="action-button-post" (click)="openDialog()">
-        <mat-icon>monochrome_photos</mat-icon>
-        Add Photos
-      </button>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="2" rowspan="2" class="tile-content-photos">
-      <div class="tile-content-list-files-div">
-        <mat-list>
-          @for (photo of photos; track photo) {
-          <mat-list-item class="custom-list-item">
-            {{ photo.name }}
-            <button mat-button (click)="onButtonClick(photo.name)">
-              <mat-icon>delete_forever</mat-icon>
-            </button>
-          </mat-list-item>
-          }
-        </mat-list>
-      </div>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="1" rowspan="2" style="background-color: darkseagreen; padding: 0px 10px;"></mat-grid-tile>
-
-    <mat-grid-tile colspan="1" rowspan="2" class="tile-content-button-photos">
       <button mat-fab extended class="action-button-post" (click)="openAddUsers()">
         <mat-icon>account_box</mat-icon>
         Tag People

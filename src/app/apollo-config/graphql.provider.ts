@@ -16,6 +16,20 @@ export function apolloOptionsFactory(): ApolloClientOptions<any> {
   return {
     link: httpLink.create({uri}),
     cache: new InMemoryCache(),
+    //  These settings will be saved as default client
+    /*default: {
+      link: httpLink.create({
+        uri: '/graphql',
+      }),
+      cache: new InMemoryCache(),
+    },
+    // These settings will be saved by name: myAlternativeGraphQl
+    myAlternativeGraphQl: {
+      link: httpLink.create({
+        uri: '/alternative-graphql',
+      }),
+      cache: new InMemoryCache(),
+    },*/
   };
 }
 

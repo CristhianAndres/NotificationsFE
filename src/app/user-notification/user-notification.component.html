@@ -3,11 +3,33 @@
     <mat-icon>notification_important</mat-icon>
   </button>
 
-  <mat-form-field appearance="fill" class="form-field">
-    <mat-label>Select</mat-label>
-    <mat-select>
-      <mat-option value="one">First option</mat-option>
-      <mat-option value="two">Second option</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" class="custom-menu">
+    <button mat-menu-item class="custom-menu-item">
+      <mat-icon class="custom-icon">dialpad</mat-icon>
+      <span>My Profile</span>
+    </button>
+    <button mat-menu-item disabled class="custom-menu-item">
+      <mat-icon class="custom-icon">voicemail</mat-icon>
+      <span>Privacy and Security</span>
+    </button>
+    <button mat-menu-item class="custom-menu-item">
+      <mat-icon class="custom-icon">notifications_off</mat-icon>
+      <span>Languaje</span>
+    </button>
+    <button mat-menu-item class="custom-menu-item">
+      <mat-icon class="custom-icon">dialpad</mat-icon>
+      <span>Help</span>
+    </button>
+    <button mat-menu-item disabled class="custom-menu-item">
+      <mat-icon class="custom-icon">voicemail</mat-icon>
+      <span>About Us</span>
+    </button>
+    <button mat-menu-item class="custom-menu-item" (click)="logout()">
+      <mat-icon class="custom-icon">notifications_off</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
 </div>

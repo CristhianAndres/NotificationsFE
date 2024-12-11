@@ -2,7 +2,6 @@ import {Inject, Injectable} from '@angular/core';
 import {Apollo, gql} from 'apollo-angular';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import { APOLLO_OPTIONS } from 'apollo-angular'; // Importar de Apollo Angular
 import {Post} from "../models/Post";
 import {MediaFile} from "../models/MediaFile";
 import {PostsFollowedByUsers} from "../models/PostsFollowedByUsers";
@@ -65,9 +64,9 @@ export class PostService {
   }
 
   uploadFile(file: File): Observable<any> {
-    console.log(this.apolloClient2 instanceof Apollo);  // Esto debe devolver "true" si es una instancia de Apollo
+    console.log(file instanceof File);  // Esto debe devolver "true" si es una instancia de Apollo
     console.log('Apollo Client 2:', this.apolloClient2); // Verifica el contenido de apolloClient2
-    return this.apolloClient2
+    return this.apolloClient2.use('myAlternativeGraphQl')
       .mutate({
         mutation: gql`
           mutation SingleUpload($file:Upload!){

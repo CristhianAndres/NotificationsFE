@@ -7,7 +7,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
-import {PostService} from "../services/post.service"; // Asegúrate de incluir esto
+import {PostService} from "../services/post.service";
+import {MediaFile} from "../models/MediaFile";
+import {firstValueFrom} from "rxjs"; // Asegúrate de incluir esto
 
 
 @Component({
@@ -22,30 +24,46 @@ export class TextImagePostComponent {
   imageUrl: string = ""; // Para almacenar la URL de la imagen
   info: any;
   selectedFiles: File[] = [];
+  mediaFiles : MediaFile[] = [];
+  now = new Date();
   private postService = inject(PostService);
 
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files) {
+      //this.selectedFiles.push(Array.from(input.files)[0]);
       this.selectedFiles = Array.from(input.files);
     }
   }
 
-  uploadFiles() {
+  async uploadFiles() {
     if (this.selectedFiles.length === 0) {
       alert('Por favor, selecciona archivos para subir.');
       return;
     }
-    let url;
-    this.postService.uploadFile(this.selectedFiles[0]).subscribe(
-      response => {
-        console.log('Archivo subido exitosamente', response);
-        url = response;
-      },
-      error => {
-        console.error('Error al obtener datos', error);
-      });
+    for(let i = 0; i < this.selectedFiles.length; i++) {
+      try {
+        // Usa firstValueFrom para convertir el Observable en una Promesa
+        const response = await firstValueFrom(this.postService.uploadFile(this.selectedFiles[i]));
+        console.log('Archivo subido exitosamente', response.data.singleUpload.message);
+        this.imageUrl = response.data.singleUpload.message; // Actualiza la imagen o haz lo que necesites con la respuesta
 
+        this.now = new Date();
+        // @ts-ignore
+        this.mediaFiles.push({
+          //id : '',
+          createAt : this.now,
+          updateAt : this.now,
+          filename : this.selectedFiles[i].name,
+          mimetype : this.selectedFiles[i].type,
+          encoding : '',
+          path: this.imageUrl,
+          type: "IMAGE"
+        });
+      } catch (error) {
+        console.error('Error al obtener datos', error);
+      }
+    }
     // Aquí puedes implementar la lógica para subir los archivos a tu servidor.
     // Esto podría incluir el uso de FormData para enviar los archivos a través de una petición HTTP.
 
