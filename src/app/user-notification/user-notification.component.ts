@@ -3,12 +3,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenu, MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
-import {Router} from "@angular/router"; // Si estás usando formularios reactivos
+import {Router, RouterLink} from "@angular/router"; // Si estás usando formularios reactivos
 
 @Component({
   selector: 'app-user-notification',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, ReactiveFormsModule, MatMenuTrigger, MatMenu],
+  imports: [MatButtonModule, MatIconModule, ReactiveFormsModule, MatMenuTrigger, MatMenu, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './user-notification.component.html',
   styleUrl: './user-notification.component.css'

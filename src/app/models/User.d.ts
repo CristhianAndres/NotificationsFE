@@ -56,9 +56,4 @@ export declare class User {
     this.id = id;
   }
 
-    obtenerAtributos(): string[] {
-      // Extraer los nombres de los atributos en un array
-      return Object.keys(this);
-    }
-
 }

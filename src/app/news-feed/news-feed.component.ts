@@ -22,6 +22,8 @@ import {UserNotificationComponent} from '../user-notification/user-notification.
 import {PostListComponent} from '../post-list/post-list.component';
 import {ConfigurationComponent} from '../configuration/configuration.component';
 import {User} from "../models/User";
+import {ActivatedRoute} from "@angular/router";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-news-feed',
@@ -57,16 +59,35 @@ export class NewsFeedComponent{
     );
   }*/
   constructor(/*private loginUser: User*/) {
-
+    //this.loginUser.userName = this.router.snapshot.params['login'];
+    this.userName = this.router.snapshot.params['login'];
+    this.loginUserId = this.router.snapshot.params['id'];
+    //this.loadUsers();
   }
 
-  /*private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  }*/
+  loadUsers(): void {
+    this.userService.getUsers().subscribe(
+      response => {
+        this.users = response;
+        this.loginUser = this.users.find((user: User) => {
+          return this.userName === user.userName;
+        });
+        //this.loginUserId = this.loginUser?.id;
+      },
+      error => {
+        console.error('Error al obtener datos', error);
+      }
+    );
+  }
 
   readonly dialog = inject(MatDialog);
+  router : ActivatedRoute = inject(ActivatedRoute);
+  loginUser!: User | undefined;
+  private userService = inject(UserService);
+  users: User[] = [];
+  userName: any;
+  mensaje: string = 'Hola desde el componente padre!';
+  loginUserId = "xx";
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ConfigurationComponent, {

@@ -25,10 +25,10 @@
     <mat-grid-tile colspan="2" rowspan="2" class="tile-content-photos">
       <div class="tile-content-list-files-div">
       <mat-list>
-        @for (actor of actors; track actor) {
+        @for (user of users; track user) {
         <mat-list-item class="custom-list-item">
-          {{ actor.firstName }} {{ actor.lastName }}
-          <button mat-button (click)="onButtonClick(actor.id)">
+          {{ user.firstName }} {{ user.lastName }}
+          <button mat-button (click)="onButtonClick(user.id)">
             <mat-icon>delete_forever</mat-icon>
           </button>
         </mat-list-item>
@@ -60,6 +60,24 @@
         <mat-form-field class="dropdown-title-post-title">
           <mat-label>New Topic</mat-label>
           <input matInput [(ngModel)]="newTopicText" (change)="onTopicChange()">
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="4" rowspan="1" style="background-color: darkseagreen; padding: 0px 10px;">
+      <div class="tile-content-topic-div">
+        <mat-form-field class="dropdown-title-post">
+          <mat-label>Actor Selected</mat-label>
+          <mat-select [(value)]="selectedActor" (selectionChange)="onSelectChangeActor()">
+            <mat-option>None</mat-option>
+            @for (actor of actors; track actor) {
+              <mat-option [value]="actor">{{ actor.name }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="dropdown-title-post-title">
+          <mat-label>New Actor</mat-label>
+          <input matInput [(ngModel)]="newActorText" (change)="onActorChange()">
         </mat-form-field>
       </div>
     </mat-grid-tile>

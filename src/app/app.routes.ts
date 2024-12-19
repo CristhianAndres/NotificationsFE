@@ -9,13 +9,13 @@ export const routes: Routes = [
     //loadComponent: () => import('./login/login.component').then(m => m.LoginComponent)
   },
   {
-    path: 'news',
+    path: 'news/:login/:id',
     component: NewsFeedComponent
     //loadComponent: ()  => import('./news-feed/news-feed.component').then(m => m.NewsFeedComponent)
   },
   {
     path: '',
-    redirectTo: '/news',
+    redirectTo: '/login',
     pathMatch: 'full',
   }
 ];

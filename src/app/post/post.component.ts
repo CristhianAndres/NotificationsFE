@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, model, signal, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, inject, model, signal, ViewChild} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -37,6 +37,7 @@ import {MediaFile} from "../models/MediaFile";
 import {PostService} from "../services/post.service";
 import {Actor} from "../models/Actor";
 import {HttpErrorResponse} from "@angular/common/http";
+import {ActorService} from "../services/actor.service";
 
 @Component({
   selector: 'app-post',
@@ -48,23 +49,41 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 export class PostComponent {
 
-  actors: User[] = [];
+  users: User[] = [];
   topics: Topic[] = [];
+  actors: Actor[] = [];
   selectedTopic: any = {};
+  selectedActor: any = {};
   newTopicText: any;
+  newActorText: any;
+  loginUserId = "";
 
   private topicService = inject(TopicService);
+  private actorService = inject(ActorService);
   private postService = inject(PostService);
   readonly dialogRefPost = inject(MatDialogRef<PostComponent>);
 
-  constructor() {
+  constructor(@Inject(MAT_DIALOG_DATA) public user: any) {
     this.loadTopics();
+    this.loadActors();
+    this.loginUserId = user.loginUserId;
   }
 
   loadTopics() {
     this.topicService.getTopics().subscribe(
       response => {
         this.topics = response;
+      },
+      error => {
+        console.error('Error al obtener datos', error);
+      }
+    )
+  }
+
+  loadActors() {
+    this.actorService.getActors().subscribe(
+      response => {
+        this.actors = response;
       },
       error => {
         console.error('Error al obtener datos', error);
@@ -93,7 +112,7 @@ export class PostComponent {
 
   openAddUsers(): void {
     const dialogRefUsersList = this.dialog.open(ActorsListCheckComponent, {
-      data: this.actors,
+      data: this.users,
       width: '90%', // Ajusta el ancho según sea necesario
       height: '100%', // Ajusta la altura según sea necesario
       maxWidth: '400px', // Puedes establecer un tamaño máximo
@@ -103,7 +122,7 @@ export class PostComponent {
     dialogRefUsersList.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if (result !== undefined) {
-        this.actors = result;
+        this.users = result;
       }
     });
   }
@@ -118,6 +137,16 @@ export class PostComponent {
     this.selectedTopic = undefined;
   }
 
+  onSelectChangeActor() {
+    if (this.selectedActor !== undefined) {
+      this.newActorText = ''; // Vacía el input cuando el select tiene un valor diferente de undefined
+    }
+  }
+
+  onActorChange() {
+    this.selectedActor = undefined;
+  }
+
   @ViewChild(DropdownGroupsTitleComponent) dropdownGroupsTitle!: DropdownGroupsTitleComponent;
   @ViewChild(TextImagePostComponent) textImagePostComponent!: TextImagePostComponent;
   savePosts() {
@@ -126,11 +155,23 @@ export class PostComponent {
     const title : string = this.dropdownGroupsTitle.title;
     const info : string = this.textImagePostComponent.info;
     //source
-    const postedBy : User = this.actors[0];//se asigna como creador del post al primer actor seleccionado, temporalmente
+    //const postedBy : User = this.users[0];//se asigna como creador del post al primer actor seleccionado, temporalmente
+    const postedBy : User = {
+      birthday: now,
+      createAt: now,
+      email: "",
+      firstName: "",
+      gender: "MALE",
+      lastName: "",
+      password: "",
+      updateAt: now,
+      userName: "",
+      id : this.loginUserId
+    }
     const belongsTo : Group = this.dropdownGroupsTitle.selectedGroup;
-    const actor : Actor = {
-      id : "xx",
-      name : this.actors[0].firstName + " " + this.actors[0].lastName,
+    const actor : Actor = this.selectedActor ? this.selectedActor : {
+      id : '',
+      name : this.newActorText,
       createAt: now,
       updateAt: now
     };//se asigna como actor del post al primer actor seleccionado, temporalmente
@@ -142,7 +183,7 @@ export class PostComponent {
     };
 
     let followedByUsers : PostsFollowedByUsers[] = [];
-    this.actors.forEach(user => {
+    this.users.forEach(user => {
       let postsFollowedByUsers : PostsFollowedByUsers = {
         id: 'idTemp',
         postId : 'postIdTemp',
