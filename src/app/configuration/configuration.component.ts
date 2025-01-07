@@ -15,7 +15,6 @@ import {
   MatDialogTitle,
   MatDialogModule
 } from '@angular/material/dialog';
-import {Apollo, gql} from 'apollo-angular';
 import {HttpErrorResponse} from '@angular/common/http';
 
 import {UserInformationComponent} from '../user-information/user-information.component';

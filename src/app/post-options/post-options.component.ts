@@ -32,7 +32,7 @@ export class PostOptionsComponent {
     console.log(this.loginUserId);
   }
   triggerUpdate() {
-    this.postCommunicationService.notifyPostListUpdate();
+    this.postCommunicationService.notifyPostListUpdate("post-options");
   }
 
   openDialog(): void {
@@ -47,8 +47,11 @@ export class PostOptionsComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.postCommunicationService.notifyPostListUpdate();
+      this.postCommunicationService.notifyPostListUpdate("post-options");
     });
   }
 
+  homeListPosts() {
+    this.postCommunicationService.notifyPostListUpdate("post-options");
+  }
 }

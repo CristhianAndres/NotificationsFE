@@ -12,10 +12,15 @@
             <img mat-card-image *ngIf="post.mediafiles && post.mediafiles.length > 0" [src]="post.mediafiles[0].path" alt="Photo of a Shiba Inu">
             <p>Topic : {{ post.topic?.name }}</p>
             <p>Comment : {{ post.info }}</p>
+            <p>Liked by :
+              @for (usersLikedPosts of post.likedBy; track usersLikedPosts) {
+                {{ usersLikedPosts.user?.userName }},
+              }
+            </p>
           </mat-card-content>
-          <mat-card-actions >
-            <button mat-button >LIKE</button>
-            <button mat-button >COMMENT</button>
+          <mat-card-actions>
+            <button mat-button (click)="like(post.id)">LIKE</button>
+            <button mat-button (click)="comment()">COMMENT</button>
           </mat-card-actions>
         </mat-card>
       </mat-grid-tile>

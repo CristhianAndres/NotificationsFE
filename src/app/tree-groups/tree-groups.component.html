@@ -8,10 +8,13 @@
     <!-- use a disabled button to provide padding for tree leaf -->
     <button mat-icon-button disabled></button>
     {{node.name}}
+    <button mat-icon-button matSuffix *ngIf="node.typeObject == 'GROUP'" (click)="cargarPosts({$event : $event, node : node})" aria-label="Toggle password visibility">
+      <mat-icon class="custom-icon">public</mat-icon>
+    </button>
   </mat-tree-node>
   <!-- This is the tree node template for expandable nodes -->
   <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding matTreeNodeToggle
-                 [cdkTreeNodeTypeaheadLabel]="node.name">
+                 [cdkTreeNodeTypeaheadLabel]="node.name" >
     <button mat-icon-button matTreeNodeToggle
             [attr.aria-label]="'Toggle ' + node.name">
       <mat-icon class="mat-icon-rtl-mirror">
@@ -19,5 +22,8 @@
       </mat-icon>
     </button>
     {{node.name}}
+    <button mat-icon-button matSuffix *ngIf="node.typeObject == 'GROUP'" (click)="cargarPosts({$event : $event, node : node})" aria-label="Toggle password visibility">
+      <mat-icon class="custom-icon">public</mat-icon>
+    </button>
   </mat-tree-node>
 </mat-tree>

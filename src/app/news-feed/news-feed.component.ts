@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, Component, inject, model, signal, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
 import {AsyncPipe} from '@angular/common';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatInputModule} from '@angular/material/input';
@@ -50,14 +49,15 @@ import {UserService} from "../services/user.service";
 export class NewsFeedComponent{
   filteredOptions!: Observable<string[]>;
   myControl = new FormControl('');
-  //options: string[] = ['One', 'Two', 'Three'];
+  readonly dialog = inject(MatDialog);
+  router : ActivatedRoute = inject(ActivatedRoute);
+  loginUser!: User | undefined;
+  private userService = inject(UserService);
+  users: User[] = [];
+  userName: any;
+  mensaje: string = 'Hola desde el componente padre!';
+  loginUserId = "xx";
 
-  /*ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value || '')),
-    );
-  }*/
   constructor(/*private loginUser: User*/) {
     //this.loginUser.userName = this.router.snapshot.params['login'];
     this.userName = this.router.snapshot.params['login'];
@@ -79,15 +79,6 @@ export class NewsFeedComponent{
       }
     );
   }
-
-  readonly dialog = inject(MatDialog);
-  router : ActivatedRoute = inject(ActivatedRoute);
-  loginUser!: User | undefined;
-  private userService = inject(UserService);
-  users: User[] = [];
-  userName: any;
-  mensaje: string = 'Hola desde el componente padre!';
-  loginUserId = "xx";
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ConfigurationComponent, {

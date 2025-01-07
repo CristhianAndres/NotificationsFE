@@ -14,7 +14,7 @@
     </mat-grid-tile>
 
     <mat-grid-tile colspan="3" rowspan="2" style="background-color: lightblue;">
-      <app-user-notification></app-user-notification>
+      <app-user-notification loginUserId="{{loginUserId}}"></app-user-notification>
     </mat-grid-tile>
   <!--fila 2-->
     <mat-grid-tile colspan="3" rowspan="6" class="tile-content-tree">
@@ -24,7 +24,7 @@
     <!--lista de post's-->
     <mat-grid-tile colspan="5" rowspan="6" style="background-color: azure;" class="tile-content-posts">
       <div class="tile-content-post scrollable-content">
-        <app-post-list></app-post-list>
+        <app-post-list loginUserId="{{loginUserId}}"></app-post-list>
       </div>
     </mat-grid-tile>
 

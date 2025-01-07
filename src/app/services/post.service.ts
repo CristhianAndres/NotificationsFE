@@ -24,7 +24,10 @@ export class PostService {
         query: gql`
           {
             posts {
+              id
               title
+              groupId
+              createAt
               postedBy{
                 id
                 firstName
@@ -53,6 +56,25 @@ export class PostService {
                 }
                 text
               }
+              followedBy {
+                 id
+                 userId
+                 postId
+                 user {
+                    id
+                    firstName
+                    lastName
+                    userName
+                 }
+              }
+              likedBy {
+                user {
+                  id
+                  firstName
+                  lastName
+                  userName
+                }
+              }
             }
           }
         `,
@@ -61,6 +83,35 @@ export class PostService {
       .valueChanges.pipe(map((result: any) =>
         result.data.posts
       ));
+  }
+
+  likedPost(userId:string, postId:string): Observable<any> {
+    const createOneUsersLikedPosts: CreateOneUsersLikedPosts = {
+      post:{
+        connect:{
+          id : postId
+        }
+      },
+      user:{
+        connect:{
+          id : userId
+        }
+      }
+    };
+    return this.apollo
+      .mutate({
+        mutation: gql`
+          mutation createOneUsersLikedPosts($data: UsersLikedPostsCreateInput!){
+            createOneUsersLikedPosts(data: $data){
+              id
+              postId
+              userId
+            }
+          }`,
+        variables: {
+          data: createOneUsersLikedPosts
+        }
+      })
   }
 
   uploadFile(file: File): Observable<any> {
@@ -196,4 +247,17 @@ interface CreatePost {
         }
       }
     }
+}
+
+interface CreateOneUsersLikedPosts {
+  post: {
+    connect:{
+      id: string
+    }
+  }
+  user: {
+    connect:{
+      id: string
+    }
+  }
 }

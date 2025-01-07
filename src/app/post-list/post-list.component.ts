@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject, Input, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common'; // Importa CommonModule
 import {MatGridListModule} from '@angular/material/grid-list';
 import {PostComponent} from '../post/post.component';
@@ -8,13 +8,6 @@ import {PostService} from "../services/post.service";
 import {Post} from "../models/Post";
 import {FormBuilder} from "@angular/forms";
 import {PostCommunicationService} from "../post-communication.service";
-
-export interface CardData {
-  user: string;
-  group: string;
-  title: string;
-  content: string;
-}
 
 @Component({
   selector: 'app-post-list',
@@ -27,37 +20,62 @@ export class PostListComponent implements OnInit {
 
   private postService = inject(PostService);
   posts: Post[] = [];
+  @Input() loginUserId = ''; // Recibe el mensaje del padre
 
   constructor(private postCommunicationService: PostCommunicationService) {
-    this.loadPosts();
+    this.loadPosts("post-options");
   }
 
   ngOnInit() {
-    this.postCommunicationService.postListUpdated$.subscribe(() => {
-      this.updatePostList();
+    this.postCommunicationService.postListUpdated$.subscribe(data => {
+      this.updatePostList(data);
     });
   }
 
-  updatePostList() {
+  updatePostList(data: any) {
     // Implementa aquí la lógica que necesitas ejecutar
-    this.loadPosts();
+    this.loadPosts(data);
   }
 
-  loadPosts() {
+  loadPosts(data:any) {
     this.postService.getPosts().subscribe(
       response => {
-        this.posts = response.reverse();
+        if(data == "post-options") {
+          //this.posts = response.reverse();
+          // Ordenar por createdAt de más reciente a más antiguo
+          this.posts = response.sort((a:Post, b:Post) => {
+            return new Date(b.createAt).getTime() - new Date(a.createAt).getTime();
+          });
+
+        } else if (typeof data === 'string'){
+          this.posts = response.filter((post:Post) =>
+            post.groupId === data).sort((a:Post, b:Post) => {
+            return new Date(b.createAt).getTime() - new Date(a.createAt).getTime();
+          });
+
+        } else if (typeof data === 'object'){
+          this.posts = response.filter((post:Post) =>
+            post.info.toLowerCase().includes(data.postText.toLowerCase())).sort((a:Post, b:Post) => {
+            return new Date(b.createAt).getTime() - new Date(a.createAt).getTime();
+          });
+        }
       },
       error => {
         console.error('Error al obtener datos', error);
       });
   }
 
-  cards: CardData[] = [
-    {user: 'User 1', group: 'Group 1', title: 'Seminario', content: 'Contenido de la tarjeta 1'},
-    {user: 'User 2', group: 'Group 1', title: 'Seminario', content: 'Contenido de la tarjeta 2'},
-    {user: 'User 3', group: 'Group 1', title: 'Seminario', content: 'Contenido de la tarjeta 3'},
-    {user: 'User 4', group: 'Group 1', title: 'Seminario', content: 'Contenido de la tarjeta 4'},
-    {user: 'User 5', group: 'Group 1', title: 'Seminario', content: 'Contenido de la tarjeta 5'}
-  ];
+  like(postId : string) {
+    this.postService.likedPost(this.loginUserId, postId).subscribe(
+      response => {
+        this.loadPosts("post-options");
+      },
+      error => {
+        console.error('Error al obtener datos', error);
+      });
+  }
+
+  comment() {
+
+  }
 }

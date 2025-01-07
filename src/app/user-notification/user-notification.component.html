@@ -1,17 +1,36 @@
 <div class="container-user-notification">
-  <button mat-fab class="action-button">
-    <mat-icon>notification_important</mat-icon>
+  <button mat-fab class="action-button" [matBadge]="notificationsNumber" [matMenuTriggerFor]="menuNotificacions">
+    <mat-icon aria-hidden="false">notification_important</mat-icon>
   </button>
+  <mat-menu #menuNotificacions="matMenu" class="custom-menu" xPosition="before">
+    @for (post of userPosts; track post) {
+    <button mat-menu-item class="custom-menu-item" (click)="openMyProfile()">
+      <mat-icon class="custom-icon">public</mat-icon>
+      <div class="custom-menu-item-text">
+        <span>{{post.title}} - {{post.postedBy?.userName}}</span>
+        <span>{{post.info}}</span>
+      </div>
+    </button>
+    }
+  </mat-menu>
 
   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu" class="custom-menu">
-    <button mat-menu-item class="custom-menu-item">
+    <button mat-menu-item disabled=true class="custom-menu-item" (click)="openMyProfile()">
+      <mat-icon class="custom-icon">person_outline</mat-icon>
+      <span>{{userNameLogin}}</span>
+    </button>
+    <button mat-menu-item class="custom-menu-item" (click)="openMyProfile()">
       <mat-icon class="custom-icon">dialpad</mat-icon>
       <span>My Profile</span>
     </button>
-    <button mat-menu-item disabled class="custom-menu-item">
+    <button mat-menu-item class="custom-menu-item" *ngIf="showConfigurationButton" (click)="openConfiguration()">
+      <mat-icon class="custom-icon">group_add</mat-icon>
+      <span>Configuration</span>
+    </button>
+    <button mat-menu-item class="custom-menu-item" (click)="openPrivacyAndSecurity()">
       <mat-icon class="custom-icon">voicemail</mat-icon>
       <span>Privacy and Security</span>
     </button>
@@ -19,11 +38,11 @@
       <mat-icon class="custom-icon">notifications_off</mat-icon>
       <span>Languaje</span>
     </button>
-    <button mat-menu-item class="custom-menu-item">
+    <button mat-menu-item class="custom-menu-item" (click)="openHelp()">
       <mat-icon class="custom-icon">dialpad</mat-icon>
       <span>Help</span>
     </button>
-    <button mat-menu-item disabled class="custom-menu-item">
+    <button mat-menu-item class="custom-menu-item" (click)="openAboutUs()">
       <mat-icon class="custom-icon">voicemail</mat-icon>
       <span>About Us</span>
     </button>

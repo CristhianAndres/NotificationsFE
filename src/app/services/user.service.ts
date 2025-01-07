@@ -51,7 +51,7 @@ export class UserService {
   }
 
   createUser(user: User): Observable<any> {
-    //console.log(this.fullUrl);
+
     return this.apollo
       .mutate({
         mutation: gql`
@@ -82,7 +82,9 @@ export class UserService {
     //console.log(this.fullUrl);
     const updateUser: Record<string, { set: any }> = {};
     Object.entries(user).forEach(([key, value]) => {
-      updateUser[key] = {set: value}
+      if(key != 'confirmPassword') {
+        updateUser[key] = {set: value}
+      }
     });
     //console.log(updateUser);
     const id = user.id;
@@ -129,33 +131,3 @@ export class UserService {
       })
   }
 }
-
-/*
-variables: {
-                                               data : {"createAt": "2024-01-16T00:00:00Z",
-                                                     "updateAt": "2024-01-16T00:00:00Z",
-                                                     "firstName": "Noemi5",
-                                                     "firstNameForSearch": "Noemi",
-                                                     "lastName": "Uyaguari",
-                                                     "lastNameForSearch": "Uyaguari",
-                                                     "email": "noemi.uyaguari@epn.edu.ec",
-                                                     "emailForSearch": "noemi.uyaguari@epn.edu.ec",
-                                                     "userName": "nuyaguari",
-                                                     "userNameForSearch": "nuyaguari",
-                                                     "password": "aeiou",
-                                                     "birthday": "2000-01-15T00:00:00Z",
-                                                     "gender": "FEMALE"}
-                                               }
-        })
-*/
-/*.subscribe(
-          ({ data }) => {
-            console.log('got data', data);
-          },
-          error => {
-            console.log('there was an error sending the query', error);
-          },
-        );*/
-/*.valueChanges.pipe(map((result: any) =>
-  result.data.users
-));*/

@@ -10,19 +10,22 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {HttpErrorResponse} from '@angular/common/http';
+import {provideNativeDateAdapter} from '@angular/material/core';
 
 //User, Group service
 import {UserService} from '../services/user.service';
 
 //User, Group model
 import {User} from '../models/User';
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-user-information',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatDatepickerModule, MatSelectModule, MatInputModule, MatToolbarModule, MatButtonModule],
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatDatepickerModule, MatSelectModule, MatInputModule, MatToolbarModule, MatButtonModule, MatIcon],
   templateUrl: './user-information.component.html',
-  styleUrl: './user-information.component.css'
+  styleUrl: './user-information.component.css',
+  providers: [provideNativeDateAdapter()]
 })
 
 export class UserInformationComponent {
@@ -31,6 +34,7 @@ export class UserInformationComponent {
   isEditMode!: boolean; // Variable para saber si estamos en modo edición
   private userService = inject(UserService);
   readonly dialogRef = inject(MatDialogRef<UserInformationComponent>);
+  hide = true; // Propiedad para controlar la visibilidad
 
   constructor(
     private fb: FormBuilder,
@@ -48,6 +52,7 @@ export class UserInformationComponent {
       userName: ['', Validators.required],
       userNameForSearch: [''],
       password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
       birthday: ['', Validators.required],
       gender: ['', Validators.required],
       address: ['', Validators.required],
@@ -69,15 +74,25 @@ export class UserInformationComponent {
         gender: user.gender,
         address: user.address,
         aboutMe: user.aboutMe,
-        password: user.password
+        password: user.password,
+        confirmPassword: user.password
       });
     }
+  }
 
+  togglePasswordVisibility(event: MouseEvent): void {
+    event.preventDefault(); // Evita que el evento se propague
+    this.hide = !this.hide; // Cambia la visibilidad
   }
 
   onSubmit() {
     if (this.userForm.valid) {
-      //console.log(this.userForm.value);
+      if(this.userForm.value.password != this.userForm.value.confirmPassword){
+        alert("Campos contraseña deben coicidir");
+        return;
+      }
+      delete this.userForm.value.confirmPassword;
+
       const user: User = this.userForm.value;
       const now = new Date();
       user.updateAt = now;

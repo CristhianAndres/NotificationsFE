@@ -153,9 +153,18 @@ export class PostComponent {
     console.log();
     const now = new Date();
     const title : string = this.dropdownGroupsTitle.title;
+    //validacion de titulo, obligatorio
+    if(!title){
+      alert("Ingresar Titulo");
+      return;
+    }
     const info : string = this.textImagePostComponent.info;
+    //validacion de comentario, obligatorio
+    if(!info){
+      alert("Ingresar Comentario");
+      return;
+    }
     //source
-    //const postedBy : User = this.users[0];//se asigna como creador del post al primer actor seleccionado, temporalmente
     const postedBy : User = {
       birthday: now,
       createAt: now,
@@ -169,18 +178,34 @@ export class PostComponent {
       id : this.loginUserId
     }
     const belongsTo : Group = this.dropdownGroupsTitle.selectedGroup;
+    //validacion de grupo, obligatorio
+    if(!belongsTo?.id){
+      alert("Seleccionar Grupo");
+      return;
+    }
     const actor : Actor = this.selectedActor ? this.selectedActor : {
       id : '',
       name : this.newActorText,
       createAt: now,
       updateAt: now
-    };//se asigna como actor del post al primer actor seleccionado, temporalmente
+    };
+    //validacion de actor, obligatorio
+    if(!actor?.name){
+      alert("Seleccionar o ingresar Actor");
+      return;
+    }
+
     const topic : Topic = this.selectedTopic ? this.selectedTopic : {
       id : '',
       name : this.newTopicText,
       createAt : now,
       updateAt : now
     };
+    //validacion de actor, obligatorio
+    if(!topic?.name){
+      alert("Seleccionar o ingresar Topic");
+      return;
+    }
 
     let followedByUsers : PostsFollowedByUsers[] = [];
     this.users.forEach(user => {
