@@ -5,6 +5,7 @@ import {map} from 'rxjs/operators';
 import {Post} from "../models/Post";
 import {MediaFile} from "../models/MediaFile";
 import {PostsFollowedByUsers} from "../models/PostsFollowedByUsers";
+import {User} from "../models/User";
 
 @Injectable({
   providedIn: 'root',
@@ -68,6 +69,7 @@ export class PostService {
                  }
               }
               likedBy {
+                id
                 user {
                   id
                   firstName
@@ -110,6 +112,21 @@ export class PostService {
           }`,
         variables: {
           data: createOneUsersLikedPosts
+        }
+      })
+  }
+
+  dislikedPost(id:string): Observable<any> {
+    return this.apollo
+      .mutate({
+        mutation: gql`
+                      mutation deleteOneUsersLikedPosts($where: UsersLikedPostsWhereUniqueInput!) {
+                        deleteOneUsersLikedPosts(where:$where){
+                          id
+                        }
+                      }`,
+        variables: {
+          where: {id}
         }
       })
   }
