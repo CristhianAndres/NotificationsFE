@@ -11,6 +11,7 @@
           <mat-card-content>
             <img mat-card-image *ngIf="post.mediafiles && post.mediafiles.length > 0" [src]="post.mediafiles[0].path" alt="Photo of a Shiba Inu">
             <p>Topic : {{ post.topic?.name }}</p>
+            <p>Actor : {{ post.actor?.name }}</p>
             <p>Comment : {{ post.info }}</p>
             <p>Liked by :
               @for (usersLikedPosts of post.likedBy; track usersLikedPosts) {

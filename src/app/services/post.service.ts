@@ -45,6 +45,10 @@ export class PostService {
                 id
                 name
               }
+              actor {
+                id
+                name
+              }
               mediafiles {
                 id
                 filename
