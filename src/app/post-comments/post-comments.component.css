@@ -1,0 +1,78 @@
+.tile-content-buttons-conf {
+  display: flex;                /* Activar Flexbox */
+  flex-direction: column;       /* Alinear elementos en columna */
+  align-items: center;          /* Alinear verticalmente en el centro */
+  height: 100%;                 /* Asegurarse de que el contenedor ocupe toda la altura del tile */
+  padding: 8px;                 /* Espaciado interno opcional */
+  box-sizing: border-box;       /* Incluir padding en el cálculo de ancho y alto */
+  background-color: lightblue;
+}
+
+.tile-content-data {
+  background-color: lightblue;
+}
+
+.action-button-conf-opt {
+  flex: 1;
+  margin-bottom: 130px;        /*CCH cambiar a 50px si se muestran los 4 botones*/
+}
+
+.demo-table {
+  width: 100%;
+}
+
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
+}
+
+.tile-content-button-conf {
+  display: flex;               /* Activar Flexbox */
+  flex-direction: column;      /* Alinear elementos en columna */
+  justify-content: flex-start; /* Alinear todos los botones al inicio (parte superior) */
+  height: 100%;                /* Asegurarse de que el contenedor ocupe toda la altura del tile */
+  padding: 16px;               /* Espaciado interno opcional */
+  box-sizing: border-box;      /* Incluir padding en el cálculo de ancho y alto */
+}
+
+.button-container-conf {
+  display: flex;                /* Activar Flexbox para los botones */
+  justify-content: space-between; /* Distribuir espacio entre los botones */
+  width: 80%;                 /* Asegurarse de que el contenedor ocupe todo el ancho */
+  flex-direction: column;
+  height: 70%;
+}
+
+.table-container-conf {
+  max-height: 430px; /* Altura máxima deseada para el contenedor */
+  overflow-y: auto;  /* Habilita el scroll vertical */
+  display: block;    /* Asegúrate de que el contenedor sea un bloque */
+  width: 98%;
+}
+
+.mat-column-actions {
+  display: table-cell;
+}
+
+.action-button-create {
+  width: 20%;
+  margin: auto;
+  height: 50%;
+}
+
+.mat-mdc-table {
+  width: 100%;
+  max-height: 500px;
+  overflow: auto;
+}
+
+.mat-column-text {
+  width: 75%; /* Ajusta el ancho como lo necesites */
+}
+
+.mat-column-createAt {
+  width: 25%; /* Ajusta el ancho como lo necesites */
+}

@@ -8,11 +8,15 @@ import {PostService} from "../services/post.service";
 import {Post} from "../models/Post";
 import {FormBuilder} from "@angular/forms";
 import {PostCommunicationService} from "../post-communication.service";
+import {PostCommentsComponent} from "../post-comments/post-comments.component";
+import {MatDialog} from "@angular/material/dialog";
+import {UsersLikedPosts} from "../models/UsersLikedPosts";
+import {MatBadge} from "@angular/material/badge";
 
 @Component({
   selector: 'app-post-list',
   standalone: true,
-  imports: [MatGridListModule, PostComponent, MatCardModule, MatButtonModule, CommonModule],
+  imports: [MatGridListModule, PostComponent, MatCardModule, MatButtonModule, CommonModule, MatBadge],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.css'
 })
@@ -21,6 +25,7 @@ export class PostListComponent implements OnInit {
   private postService = inject(PostService);
   posts: Post[] = [];
   @Input() loginUserId = ''; // Recibe el mensaje del padre
+  readonly dialog = inject(MatDialog);
 
   constructor(private postCommunicationService: PostCommunicationService) {
     this.loadPosts("post-options");
@@ -65,17 +70,45 @@ export class PostListComponent implements OnInit {
       });
   }
 
-  like(postId : string) {
-    this.postService.likedPost(this.loginUserId, postId).subscribe(
-      response => {
-        this.loadPosts("post-options");
-      },
-      error => {
-        console.error('Error al obtener datos', error);
-      });
+  like(postId: string, likedBy: UsersLikedPosts[] | undefined) {
+    let userLikePost : UsersLikedPosts | undefined = likedBy?.find((userLikePost : UsersLikedPosts) =>
+      userLikePost.user?.id == this.loginUserId
+    );
+    //Quitar like
+    if(userLikePost){
+      this.postService.dislikedPost(userLikePost.id).subscribe(
+        response => {
+          this.loadPosts("post-options");
+        },
+        error => {
+          console.error('Error al obtener datos', error);
+        });
+    } else {
+      this.postService.likedPost(this.loginUserId, postId).subscribe(
+        response => {
+          this.loadPosts("post-options");
+        },
+        error => {
+          console.error('Error al obtener datos', error);
+        });
+    }
   }
 
-  comment() {
+  comment(postId : string) {
+    const dialogRef = this.dialog.open(PostCommentsComponent, {
+      data: {
+        loginUserId: this.loginUserId,
+        postId: postId
+      },
+      width: '100%', // Ajusta el ancho según sea necesario
+      height: '100%', // Ajusta la altura según sea necesario
+      maxWidth: '900px', // Puedes establecer un tamaño máximo
+      maxHeight: '500px', // Puedes establecer un tamaño máximo
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.loadPosts("post-options");
+    });
   }
 }

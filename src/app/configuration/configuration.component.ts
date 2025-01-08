@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, inject, model, signal, OnInit, ViewChild} from '@angular/core';
 import {CommonModule} from '@angular/common'; // Importa CommonModule
-import {MatTable, MatTableModule, MatTableDataSource} from '@angular/material/table';
+import {MatTableModule, MatTableDataSource} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -30,12 +30,6 @@ import {Group} from '../models/Group';
 
 const backgroundColorSelected: string = '#1abc9c';  // seleccionado
 const backgroundColorNotSelected: string = '#ebf5fb';  // no seleccionado
-
-/*export interface Group {
-  nameGroup: string;
-  id: string;
-  actionsGroup: string;
-}*/
 
 @Component({
   selector: 'app-configuration',

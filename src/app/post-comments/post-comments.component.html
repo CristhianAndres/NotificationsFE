@@ -1,1 +1,32 @@
-<p>post-comments works!</p>
+<mat-toolbar>
+  <span>Comments</span>
+</mat-toolbar>
+
+  <mat-grid-list cols="1" rowHeight="12:1">
+
+    <ng-container>
+      <mat-grid-tile colspan="1" rowspan="5" class="tile-content-data">
+        <div class="table-container-conf">
+          <table mat-table [dataSource]="dataSourceComments" class="mat-elevation-z8 demo-table">
+            <ng-container matColumnDef="text">
+              <th mat-header-cell *matHeaderCellDef>Comment</th>
+              <td mat-cell *matCellDef="let element">{{ element.text }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="createAt">
+              <th mat-header-cell *matHeaderCellDef>Created</th>
+              <td mat-cell *matCellDef="let element">{{ element.createAt }}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsComments"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsComments;"></tr>
+          </table>
+        </div>
+      </mat-grid-tile>
+    </ng-container>
+    <mat-grid-tile colspan="1" rowspan="1">
+      <button mat-fab extended class="action-button-create-user" (click)="openCreateComment()">
+        Create Comment
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>

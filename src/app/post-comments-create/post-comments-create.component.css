@@ -1,0 +1,14 @@
+mat-form-field {
+  width: 100%; /* Asegúrate de que los campos ocupen todo el ancho */
+}
+
+.action-button-save-user {
+  width: 40%;
+  height: 30px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  margin-top: 16px; /* Espacio superior opcional */
+}

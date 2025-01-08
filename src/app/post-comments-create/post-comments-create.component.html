@@ -1,0 +1,14 @@
+<mat-toolbar>
+  <span>Comment</span>
+</mat-toolbar>
+<form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="grid-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Comment</mat-label>
+    <input matInput formControlName="textComment">
+  </mat-form-field>
+  <div class="button-container">
+  <button mat-fab extended class="action-button-save-user" type="submit">
+    Save
+  </button>
+  </div>
+</form>
