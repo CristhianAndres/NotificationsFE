@@ -122,4 +122,8 @@ export class UserInformationComponent {
       }
     }
   }
+
+  closeModal() {
+    this.dialogRef.close(); // Cierra el modal
+  }
 }
