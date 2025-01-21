@@ -39,6 +39,7 @@ export class NotificationService {
                 objectType
                 targetType
                 targetId
+                objectId
               }
             }
           }

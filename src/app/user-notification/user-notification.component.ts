@@ -1,5 +1,14 @@
-import {ChangeDetectionStrategy, Component, inject, Input, OnInit, ChangeDetectorRef} from '@angular/core';
-import {CommonModule} from '@angular/common'; // Importa CommonModule
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  Input,
+  OnInit,
+  ChangeDetectorRef,
+  Inject,
+  PLATFORM_ID
+} from '@angular/core';
+import {CommonModule, isPlatformBrowser} from '@angular/common'; // Importa CommonModule
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenu, MatMenuItem, MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
@@ -20,7 +29,8 @@ import {PostService} from "../services/post.service";
 import {PostsFollowedByUsers} from "../models/PostsFollowedByUsers";
 import {MatBadge} from "@angular/material/badge";
 import {ActionNotifiesToUser} from "../models/ActionNotifiesToUser";
-import {NotificationService} from "../services/notification.service"; // Si estás usando formularios reactivos
+import {NotificationService} from "../services/notification.service";
+import {PostCommunicationService} from "../post-communication.service"; // Si estás usando formularios reactivos
 
 @Component({
   selector: 'app-user-notification',
@@ -49,13 +59,15 @@ export class UserNotificationComponent implements OnInit {
   protected userNameLogin = "";
   protected notificationsNumber: number | undefined;
   userNotifications : ActionNotifiesToUser[] = [];
-  timeoutId: any; // Variable para almacenar el timeout
+  private timeoutId: any; // Variable para almacenar el timeout
 
-  constructor(private router: Router,
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, // Detectar plataforma
+              private router: Router,
               private groupCommunicationService: GroupCommunicationService,
               private postService: PostService,
               private userService: UserService,
-              private notificationService: NotificationService) {
+              private notificationService: NotificationService,
+              private postCommunicationService: PostCommunicationService) {
     this.groupCommunicationService.allGroups$.subscribe(allGroups => {
       //this.loadPosts(this.loginUserId);
       this.allGroups = allGroups;
@@ -72,28 +84,41 @@ export class UserNotificationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.loadPosts(this.loginUserId);
-    //this.loadNotifications(this.loginUserId);
+    // Ejecutar la función inicialmente
+    this.loadNotifications(this.loginUserId);
 
-    this.timeoutId = setInterval(() => {
-      this.loadNotifications(this.loginUserId);
-    }, 10000);
+    // Verificar si estamos en el navegador antes de configurar el intervalo
+    if (isPlatformBrowser(this.platformId)) {
+      this.timeoutId = setInterval(() => {
+        this.loadNotifications(this.loginUserId);
+      }, 10000); // 10 segundos
+    }
   }
 
   ngOnDestroy(): void {
-    // Limpiar el timeout si el componente se destruye
-    clearInterval(this.timeoutId);
+    // Limpiar el intervalo al destruir el componente
+    if (this.timeoutId) {
+      clearInterval(this.timeoutId);
+    }
+  }
+
+  triggerUpdate() {
+    this.postCommunicationService.notifyPostListUpdate("tree-groups");
   }
 
   logout() {
-    // Limpiar el timeout si el componente se destruye
-    clearInterval(this.timeoutId);
+    /// Limpiar el intervalo al destruir el componente
+    if (this.timeoutId) {
+      clearInterval(this.timeoutId);
+    }
     this.router.navigate(['login']);
   }
 
   openConfiguration(): void {
     const dialogRef = this.dialog.open(ConfigurationComponent, {
-      data: {},
+      data: {
+        loginUserId : this.loginUserId
+      },
       width: '100%', // Ajusta el ancho según sea necesario
       height: '100%', // Ajusta la altura según sea necesario
       maxWidth: '1300px', // Puedes establecer un tamaño máximo
@@ -114,6 +139,13 @@ export class UserNotificationComponent implements OnInit {
       maxWidth: '900px', // Puedes establecer un tamaño máximo
       maxHeight: '700px', // Puedes establecer un tamaño máximo
     });
+
+  }
+
+  openNotification(idPost: string | undefined, typeNotification: string | undefined) {
+    if(typeNotification == "POST") {
+      this.postCommunicationService.notifyPostListUpdate({idPost: idPost});
+    }
 
   }
 

@@ -4,7 +4,7 @@
   </button>
   <mat-menu #menuNotificacions="matMenu" class="custom-menu" xPosition="before">
     @for (userNotification of userNotifications; track userNotification.id) {
-    <button mat-menu-item class="custom-menu-item" (click)="openMyProfile()">
+    <button mat-menu-item class="custom-menu-item" (click)="openNotification(userNotification.notification?.objectId, userNotification.notification?.objectType)">
       <mat-icon class="custom-icon">public</mat-icon>
       <div class="custom-menu-item-text">
         <span>{{userNotification.notification?.createBy?.userName}} Posted {{userNotification.notification?.objectType}} on group {{userNotification.notification?.nameGroup}}</span>

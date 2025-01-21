@@ -70,6 +70,7 @@ export class UserService {
                           password
                           birthday
                           gender
+                          id
                         }
                       }`,
         variables: {
