@@ -1,7 +1,7 @@
   <mat-grid-list cols="5">
     @for (post of posts; track post) {
       <mat-grid-tile colspan="5" rowspan="4">
-        <mat-card appearance="outlined">
+        <mat-card class="custom-card">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>{{ post.postedBy?.userName }} - {{ post.postedBy?.firstName }} {{ post.postedBy?.lastName }} </mat-card-title>
@@ -9,7 +9,9 @@
           </mat-card-header>
 
           <mat-card-content>
-            <img mat-card-image *ngIf="post.mediafiles && post.mediafiles.length > 0" [src]="post.mediafiles[0].path" alt="Photo of a Shiba Inu">
+            <div class="image-container">
+              <img mat-card-image *ngIf="post.mediafiles && post.mediafiles.length > 0" [src]="post.mediafiles[0].path" alt="Photo of a Shiba Inu">
+            </div>
             <p>Topic : {{ post.topic?.name }}</p>
             <p>Actor : {{ post.actor?.name }}</p>
             <p>Comment : {{ post.info }}</p>
@@ -19,7 +21,7 @@
               }
             </p>
           </mat-card-content>
-          <mat-card-actions>
+          <mat-card-actions class="actions">
             <button mat-button [matBadge]="post.likedBy?.length" (click)="like(post.id, post.likedBy)">LIKE</button>
             <button mat-button [matBadge]="post.comments?.length" (click)="comment(post.id)">COMMENT</button>
           </mat-card-actions>

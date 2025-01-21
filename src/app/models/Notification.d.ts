@@ -16,5 +16,7 @@ export declare class Notification {
     objectId: string;
     targetType: "POST" | "USER" | "GROUP";
     targetId: string;
+
+    nameGroup?: string
     //_count?: NotificationCount | null;
 }

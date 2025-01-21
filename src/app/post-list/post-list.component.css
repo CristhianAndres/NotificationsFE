@@ -1,26 +1,39 @@
+.custom-card {
+  display: flex;
+  flex-direction: column;
+  height: 99%;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Altura fija para la imagen */
+  overflow: hidden; /* Oculta el exceso de imagen */
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; /* Asegura que la imagen ocupe todo el contenedor */
+}
+
+mat-card-content {
+  flex-grow: 1; /* Permite que el contenido se expanda */
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between; /* Espaciado entre los botones */
+  margin-top: auto; /* Mueve las acciones hacia la parte inferior del mat-card */
+}
+
 mat-card {
-  width: 95%;                /* Asegurarse de que la tarjeta ocupe todo el ancho */
-  height: 100%;               /* Asegurarse de que la tarjeta ocupe toda la altura */
-}
-
-img {
-  width: 100%; /* Hace que la imagen ocupe el 100% del ancho de su contenedor */
-  height: auto; /* Mantiene la relación de aspecto original de la imagen */
-  object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsionarse */
-}
-
-.mat-grid-tile-content{
-  align-items: flex-start;
+  width: 95%;
+  height: 100%;
 }
 
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
-}
-
-.action-buttons {
-  display: flex;               /* Activar Flexbox */
-  justify-content: space-between; /* Distribuir espacio entre los botones */
-  width: 100%;                /* Asegurarse de que el contenedor ocupe todo el ancho */
-  background-color: floralwhite
 }

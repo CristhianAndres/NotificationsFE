@@ -27,6 +27,7 @@ import {GroupService} from '../services/group.service';
 //User, Group model
 import {User} from '../models/User';
 import {Group} from '../models/Group';
+import {ConfirmDeleteComponent} from "../confirm-delete/confirm-delete.component";
 
 const backgroundColorSelected: string = '#1abc9c';  // seleccionado
 const backgroundColorNotSelected: string = '#ebf5fb';  // no seleccionado
@@ -148,15 +149,22 @@ export class ConfigurationComponent implements OnInit {
 
   deleteUser(user: User) {
     console.log('Elimination:', user);
-    this.userService.deleteUser(user).subscribe(
-      (data: User) => {
-        this.loadUsers();
-        console.log('got data', data);
-      },
-      (error: HttpErrorResponse) => {
-        console.log('there was an error sending the query', error);
+
+    const dialogRef = this.dialog.open(ConfirmDeleteComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.userService.deleteUser(user).subscribe(
+          (data: User) => {
+            this.loadUsers();
+            console.log('got data', data);
+          },
+          (error: HttpErrorResponse) => {
+            console.log('there was an error sending the query', error);
+          }
+        );
       }
-    );
+    });
   }
 
   openCreateGroup(): void {
@@ -190,14 +198,20 @@ export class ConfigurationComponent implements OnInit {
 
   deleteGroup(group: Group) {
     console.log('Elimination:', group);
-    this.groupService.deleteGroup(group).subscribe(
-      (data: Group) => {
-        this.loadGroups();
-        console.log('got data', data);
-      },
-      (error: HttpErrorResponse) => {
-        console.log('there was an error sending the query', error);
+    const dialogRef = this.dialog.open(ConfirmDeleteComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.groupService.deleteGroup(group).subscribe(
+          (data: Group) => {
+            this.loadGroups();
+            console.log('got data', data);
+          },
+          (error: HttpErrorResponse) => {
+            console.log('there was an error sending the query', error);
+          }
+        );
       }
-    );
+    });
   }
 }

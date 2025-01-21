@@ -38,6 +38,9 @@ import {PostService} from "../services/post.service";
 import {Actor} from "../models/Actor";
 import {HttpErrorResponse} from "@angular/common/http";
 import {ActorService} from "../services/actor.service";
+import {NotificationService} from "../services/notification.service";
+import {Notification} from "../models/Notification";
+import {ActionNotifiesToUser} from "../models/ActionNotifiesToUser";
 
 @Component({
   selector: 'app-post',
@@ -61,6 +64,7 @@ export class PostComponent {
   private topicService = inject(TopicService);
   private actorService = inject(ActorService);
   private postService = inject(PostService);
+  private notificationService = inject(NotificationService);
   readonly dialogRefPost = inject(MatDialogRef<PostComponent>);
 
   constructor(@Inject(MAT_DIALOG_DATA) public user: any) {
@@ -208,6 +212,7 @@ export class PostComponent {
     }
 
     let followedByUsers : PostsFollowedByUsers[] = [];
+    let actionNotifiesToUsers : ActionNotifiesToUser[] = [];
     this.users.forEach(user => {
       let postsFollowedByUsers : PostsFollowedByUsers = {
         id: 'idTemp',
@@ -215,8 +220,16 @@ export class PostComponent {
         userId : user.id
       };
       followedByUsers.push(postsFollowedByUsers)
+      let actionNotifiesToUser : ActionNotifiesToUser = {
+        id: "",
+        notificationId: "",
+        userId : user.id
+      }
+      actionNotifiesToUsers.push(actionNotifiesToUser);
     });
-
+    /*let notificacion : Notification;
+    notificacion.createBy?.id = this.loginUserId;
+    notificacion.notifiesTo = actionNotifiesToUsers;*/
     this.postService.createPost({
       actorId: "", groupId: "", topicId: "", userId: "", id : "",
       createAt : now,
@@ -233,8 +246,35 @@ export class PostComponent {
       // @ts-ignore
       mediafiles : this.textImagePostComponent.mediaFiles
     }).subscribe(
-      (data: User) => {
-        console.log('got data', data);
+      (postCreated: any) => {
+        console.log('got data', postCreated);
+        this.notificationService.createNotification({
+          activityType: "CREATE",
+          actorId: actor.id,
+          actorType: "USER",
+          createAt: now,
+          id: "",
+          objectId: postCreated.data.createOnePost.id,
+          objectType: "POST",
+          seen: false,
+          targetId: belongsTo.id,
+          targetType: "GROUP",
+          updateAt: now,
+          userId: this.loginUserId,
+          notifiesTo: actionNotifiesToUsers,
+          // @ts-ignore
+          createBy : {
+            id : this.loginUserId
+          }
+        }).subscribe(
+          data => {
+            console.log('got data notification', data);
+          },
+          (error: HttpErrorResponse) => {
+            console.log('there was an error sending the query', error);
+          }
+        )
+
         this.dialogRefPost.close();
       },
       (error: HttpErrorResponse) => {

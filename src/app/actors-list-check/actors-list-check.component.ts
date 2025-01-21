@@ -6,6 +6,7 @@ import {User} from "../models/User";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {FormBuilder} from "@angular/forms";
 import {Group} from "../models/Group";
+import {ActionNotifiesToUser} from "../models/ActionNotifiesToUser";
 
 @Component({
   selector: 'app-actors-list-check',
@@ -80,5 +81,9 @@ export class ActorsListCheckComponent {
 
   saveUsers() {
     this.dialogRef.close(this.actors);
+  }
+
+  trackById(index: number, user: User): string {
+    return user.id; // Asegúrate de que 'id' sea único
   }
 }
