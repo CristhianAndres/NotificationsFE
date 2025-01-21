@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, model, signal, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, model, signal, OnInit, ViewChild, Inject} from '@angular/core';
 import {CommonModule} from '@angular/common'; // Importa CommonModule
 import {MatTableModule, MatTableDataSource} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
@@ -58,9 +58,10 @@ export class ConfigurationComponent implements OnInit {
 
   isTileGroupVisible: boolean = false; // Inicialmente el tile es visible
   backgroundColorGroup: string = backgroundColorNotSelected;
+  loginUserId = "";
 
-  constructor() {
-
+  constructor(@Inject(MAT_DIALOG_DATA) public user: any) {
+    this.loginUserId = user.loginUserId;
   }
 
   loadUsers(): void {
@@ -120,6 +121,10 @@ export class ConfigurationComponent implements OnInit {
 
   openCreateUser(): void {
     const dialogRef = this.dialog.open(UserInformationComponent, {
+      data: {
+        loginUserId : this.loginUserId,
+        groups: this.dataSourceGroups.data
+      },
       width: '90%', // Ajusta el ancho según sea necesario
       height: '100%', // Ajusta la altura según sea necesario
       maxWidth: '900px', // Puedes establecer un tamaño máximo
@@ -134,7 +139,12 @@ export class ConfigurationComponent implements OnInit {
 
   editUser(user: User): void {
     const dialogRef = this.dialog.open(UserInformationComponent, {
-      data: user,
+      //data: user,
+      data: {
+        loginUserId : this.loginUserId,
+        user: user,
+        groups: this.dataSourceGroups.data
+      },
       width: '90%', // Ajusta el ancho según sea necesario
       height: '100%', // Ajusta la altura según sea necesario
       maxWidth: '900px', // Puedes establecer un tamaño máximo

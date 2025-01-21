@@ -57,10 +57,18 @@ export class PostListComponent implements OnInit {
           });
 
         } else if (typeof data === 'object'){
-          this.posts = response.filter((post:Post) =>
-            post.info.toLowerCase().includes(data.postText.toLowerCase())).sort((a:Post, b:Post) => {
-            return new Date(b.createAt).getTime() - new Date(a.createAt).getTime();
-          });
+          if(data.idPost){
+            this.posts = response.filter((post: Post) =>
+              post.id == data.idPost).sort((a: Post, b: Post) => {
+              return new Date(b.createAt).getTime() - new Date(a.createAt).getTime();
+            });
+
+          } else {
+            this.posts = response.filter((post: Post) =>
+              post.info.toLowerCase().includes(data.postText.toLowerCase())).sort((a: Post, b: Post) => {
+              return new Date(b.createAt).getTime() - new Date(a.createAt).getTime();
+            });
+          }
         }
       },
       error => {

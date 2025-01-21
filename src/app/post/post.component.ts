@@ -273,7 +273,7 @@ export class PostComponent {
           (error: HttpErrorResponse) => {
             console.log('there was an error sending the query', error);
           }
-        )
+        );
 
         this.dialogRefPost.close();
       },
