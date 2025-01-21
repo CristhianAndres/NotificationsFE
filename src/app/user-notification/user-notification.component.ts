@@ -18,7 +18,9 @@ import {AboutUsComponent} from "../about-us/about-us.component";
 import {Post} from "../models/Post";
 import {PostService} from "../services/post.service";
 import {PostsFollowedByUsers} from "../models/PostsFollowedByUsers";
-import {MatBadge} from "@angular/material/badge"; // Si estás usando formularios reactivos
+import {MatBadge} from "@angular/material/badge";
+import {ActionNotifiesToUser} from "../models/ActionNotifiesToUser";
+import {NotificationService} from "../services/notification.service"; // Si estás usando formularios reactivos
 
 @Component({
   selector: 'app-user-notification',
@@ -46,11 +48,14 @@ export class UserNotificationComponent implements OnInit {
   protected user: any;
   protected userNameLogin = "";
   protected notificationsNumber: number | undefined;
+  userNotifications : ActionNotifiesToUser[] = [];
+  timeoutId: any; // Variable para almacenar el timeout
 
   constructor(private router: Router,
               private groupCommunicationService: GroupCommunicationService,
               private postService: PostService,
-              private userService: UserService) {
+              private userService: UserService,
+              private notificationService: NotificationService) {
     this.groupCommunicationService.allGroups$.subscribe(allGroups => {
       //this.loadPosts(this.loginUserId);
       this.allGroups = allGroups;
@@ -67,10 +72,22 @@ export class UserNotificationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadPosts(this.loginUserId);
+    //this.loadPosts(this.loginUserId);
+    //this.loadNotifications(this.loginUserId);
+
+    this.timeoutId = setInterval(() => {
+      this.loadNotifications(this.loginUserId);
+    }, 10000);
+  }
+
+  ngOnDestroy(): void {
+    // Limpiar el timeout si el componente se destruye
+    clearInterval(this.timeoutId);
   }
 
   logout() {
+    // Limpiar el timeout si el componente se destruye
+    clearInterval(this.timeoutId);
     this.router.navigate(['login']);
   }
 
@@ -98,11 +115,6 @@ export class UserNotificationComponent implements OnInit {
       maxHeight: '700px', // Puedes establecer un tamaño máximo
     });
 
-    /*},
-    error => {
-      console.error('Error al obtener datos', error);
-    }
-  );*/
   }
 
   openPrivacyAndSecurity() {
@@ -164,4 +176,56 @@ export class UserNotificationComponent implements OnInit {
         console.error('Error al obtener datos', error);
       });
   }
+
+  loadNotifications(data: any) {
+    this.notificationService.getNotificationsToUsers().subscribe(
+      response => {
+        this.userNotifications = response;
+        this.userNotifications = this.userNotifications?.filter((actionNotification: ActionNotifiesToUser) =>
+            actionNotification.userId === data
+        );
+        this.notificationsNumber = this.userNotifications?.length;
+        this.userNotifications.forEach(notificationObj => {
+          // Buscamos el grupo cuyo id coincide con el targetId de la notificación
+          const group = this.allGroups.find(g => g.id === notificationObj.notification?.targetId);
+
+          // Si encontramos el grupo, asignamos el nombre al campo nameGroup de la notificación
+          if (group) {
+            if(notificationObj.notification !== undefined) {
+              //if(notificationObj.notification.nameGroup !== undefined) {
+                notificationObj.notification.nameGroup = group.name;
+              //}
+            }
+          }
+        });
+
+        // Forzar la detección de cambios
+        this.cdr.markForCheck(); // O this.cdr.detectChanges();
+
+        //asignacion de usuario login
+        this.userService.getUsers().subscribe(
+          response => {
+            this.users = response;
+            this.user = this.users.find((user: User) => {
+              return this.loginUserId === user.id;
+            });
+            this.userNameLogin = this.user.userName;
+            // Forzar la detección de cambios aquí también si es necesario
+            this.cdr.markForCheck(); // O this.cdr.detectChanges();
+          },
+          error => {
+            console.error('Error al obtener datos', error);
+          }
+        );
+
+      },
+      error => {
+        console.error('Error al obtener datos', error);
+      });
+  }
+
+  trackById(index: number, notification: ActionNotifiesToUser): string {
+    return notification.id; // Asegúrate de que 'id' sea único
+  }
+
 }

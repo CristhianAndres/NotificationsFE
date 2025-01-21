@@ -1,7 +1,7 @@
 .custom-menu {
   background-color: #f4f4f4; /* Color de fondo */
   border-radius: 8px; /* Bordes redondeados */
-  min-width: 200px; /* Establece un ancho mínimo */
+  min-width: 400px; /* Establece un ancho mínimo */
   max-height: 300px; /* Establece un alto máximo */
   overflow: auto; /* Permite desplazamiento si hay muchas opciones */
 }

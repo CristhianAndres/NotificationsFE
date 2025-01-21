@@ -3,12 +3,12 @@
     <mat-icon aria-hidden="false">notification_important</mat-icon>
   </button>
   <mat-menu #menuNotificacions="matMenu" class="custom-menu" xPosition="before">
-    @for (post of userPosts; track post) {
+    @for (userNotification of userNotifications; track userNotification.id) {
     <button mat-menu-item class="custom-menu-item" (click)="openMyProfile()">
       <mat-icon class="custom-icon">public</mat-icon>
       <div class="custom-menu-item-text">
-        <span>{{post.title}} - {{post.postedBy?.userName}}</span>
-        <span>{{post.info}}</span>
+        <span>{{userNotification.notification?.createBy?.userName}} Posted {{userNotification.notification?.objectType}} on group {{userNotification.notification?.nameGroup}}</span>
+        <!--span>{{userNotification.info}}</span-->
       </div>
     </button>
     }
