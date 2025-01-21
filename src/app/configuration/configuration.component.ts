@@ -214,4 +214,9 @@ export class ConfigurationComponent implements OnInit {
       }
     });
   }
+
+  readonly dialogRefPost = inject(MatDialogRef<ConfigurationComponent>);
+  closeModal() {
+    this.dialogRefPost.close(); // Cierra el modal
+  }
 }

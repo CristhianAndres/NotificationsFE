@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {MatDialogActions, MatDialogClose, MatDialogContent} from "@angular/material/dialog";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-help-text',
@@ -7,7 +8,8 @@ import {MatDialogActions, MatDialogClose, MatDialogContent} from "@angular/mater
   imports: [
     MatDialogContent,
     MatDialogActions,
-    MatDialogClose
+    MatDialogClose,
+    MatButton
   ],
   templateUrl: './help-text.component.html',
   styleUrl: './help-text.component.css'

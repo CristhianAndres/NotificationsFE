@@ -18,11 +18,12 @@ import {Group} from '../models/Group';
 import {UserService} from '../services/user.service';
 import {GroupService} from '../services/group.service';
 import {UsersListCheckComponent} from "../users-list-check/users-list-check.component";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-group-information',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatDatepickerModule, MatSelectModule, MatInputModule, MatToolbarModule, MatButtonModule],
+    imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatDatepickerModule, MatSelectModule, MatInputModule, MatToolbarModule, MatButtonModule, MatIcon],
   templateUrl: './group-information.component.html',
   styleUrl: './group-information.component.css'
 })
@@ -124,6 +125,10 @@ export class GroupInformationComponent {
         //this.animal.set(result);
       }
     });
+  }
+
+  closeModal() {
+    this.dialogRef.close(); // Cierra el modal
   }
 }
 

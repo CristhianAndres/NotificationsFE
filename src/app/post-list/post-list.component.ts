@@ -46,8 +46,6 @@ export class PostListComponent implements OnInit {
     this.postService.getPosts().subscribe(
       response => {
         if(data == "post-options") {
-          //this.posts = response.reverse();
-          // Ordenar por createdAt de más reciente a más antiguo
           this.posts = response.sort((a:Post, b:Post) => {
             return new Date(b.createAt).getTime() - new Date(a.createAt).getTime();
           });

@@ -4,9 +4,15 @@
   width: 100%; /* Asegúrate de que la barra de herramientas ocupe todo el ancho */
 }
 
+.spacer {
+  flex: 1;
+}
+
+.close-button {
+  color: red;
+}
+
 .container-post {
-  margin: 5; /* Sin márgenes */
-  padding: 5; /* Sin padding */
   height: 100%; /* Puede ser el valor que necesites */
   width: 97%; /* Puede ser el valor que necesites */
 }

@@ -282,4 +282,8 @@ export class PostComponent {
       }
     );
   }
+
+  closeModal() {
+    this.dialogRefPost.close(); // Cierra el modal
+  }
 }

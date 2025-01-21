@@ -1,3 +1,17 @@
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between; /* Alinea los elementos a los extremos */
+  width: 100%; /* Asegúrate de que la barra de herramientas ocupe todo el ancho */
+}
+
+.spacer {
+  flex: 1;
+}
+
+.close-button {
+  color: red;
+}
+
 .container-conf {
   margin: 0; /* Sin márgenes */
   padding: 0; /* Sin padding */
