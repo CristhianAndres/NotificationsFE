@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <span>User</span>
+  <span i18n>User</span>
   <span>-</span>
   <span>{{ isEditMode ? ' Update' : ' Create' }}</span>
   <span class="spacer"></span>
@@ -12,47 +12,47 @@
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="grid-form">
 
     <mat-form-field appearance="fill">
-      <mat-label>Name</mat-label>
+      <mat-label i18n>Name</mat-label>
       <input matInput formControlName="firstName">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Last Name</mat-label>
+      <mat-label i18n>Last Name</mat-label>
       <input matInput formControlName="lastName">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Name Search</mat-label>
+      <mat-label i18n>Name Search</mat-label>
       <input matInput formControlName="firstNameForSearch">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Last Name Search</mat-label>
+      <mat-label i18n>Last Name Search</mat-label>
       <input matInput formControlName="lastNameForSearch">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
+      <mat-label i18n>Email</mat-label>
       <input matInput formControlName="email">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Email Search</mat-label>
+      <mat-label i18n>Email Search</mat-label>
       <input matInput formControlName="emailForSearch">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Username</mat-label>
+      <mat-label i18n>Username</mat-label>
       <input matInput formControlName="userName">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Username Search</mat-label>
+      <mat-label i18n>Username Search</mat-label>
       <input matInput formControlName="userNameForSearch">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Password</mat-label>
+      <mat-label i18n>Password</mat-label>
       <input matInput  [type]="hide ? 'password' : 'text'"  formControlName="password">
       <button mat-icon-button matSuffix (click)="togglePasswordVisibility($event)" aria-label="Toggle password visibility">
         <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
@@ -60,7 +60,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Confirm Password</mat-label>
+      <mat-label i18n>Confirm Password</mat-label>
       <input matInput  [type]="hide ? 'password' : 'text'"  formControlName="confirmPassword">
       <button mat-icon-button matSuffix (click)="togglePasswordVisibility($event)" aria-label="Toggle password visibility">
         <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
@@ -68,41 +68,32 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Birthday</mat-label>
+      <mat-label i18n>Birthday</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="birthday">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Gender</mat-label>
+      <mat-label i18n>Gender</mat-label>
       <mat-select formControlName="gender">
-        <mat-option value="FEMALE">FEMALE</mat-option>
-        <mat-option value="MALE">MALE</mat-option>
-        <mat-option value="UNSPECIFIED">UNSPECIFIED</mat-option>
+        <mat-option value="FEMALE" i18n>FEMALE</mat-option>
+        <mat-option value="MALE" i18n>MALE</mat-option>
+        <mat-option value="UNSPECIFIED" i18n>UNSPECIFIED</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Address</mat-label>
+      <mat-label i18n>Address</mat-label>
       <input matInput formControlName="address">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>About me</mat-label>
+      <mat-label i18n>About me</mat-label>
       <input matInput formControlName="aboutMe">
     </mat-form-field>
 
-    <!--mat-form-field appearance="fill">
-      <mat-label>Role</mat-label>
-      <mat-select formControlName="role" required>
-        <mat-option value="admin">Admin</mat-option>
-        <mat-option value="user">User</mat-option>
-        <mat-option value="guest">Guest</mat-option>
-      </mat-select>
-    </mat-form-field-->
-
-    <button mat-fab extended class="action-button-save-user" type="submit">
+    <button mat-fab extended class="action-button-save-user" type="submit" i18n>
       Save
     </button>
   </form>

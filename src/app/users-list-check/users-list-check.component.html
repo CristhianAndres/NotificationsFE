@@ -1,4 +1,4 @@
-<h3>Select users to group</h3>
+<h3 i18n>Select users to group</h3>
 <span class="example-list-section">
     <ul>
       @for (user of users; track user; let i = $index) {
@@ -10,6 +10,6 @@
       }
     </ul>
 </span>
-<button mat-fab extended class="action-button-save-users" type="button" (click)="saveUsers()">
+<button mat-fab extended class="action-button-save-users" type="button" (click)="saveUsers()" i18n>
   Accept
 </button>
