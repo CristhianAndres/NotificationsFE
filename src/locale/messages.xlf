@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="7328290442036874787" datatype="html">
+        <source>VSnet is an innovative platform designed to support strategic decision-making through
+          advanced analysis and collection of valuable information. Our application empowers users
+          by providing insights and trends that aid in informed planning and adaptive strategies.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/about-us/about-us.component.html</context>
+          <context context-type="linenumber">2,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4122266285230458229" datatype="html">
+        <source>With a focus on privacy, security, and ethical practices, VSnet serves as a tool for organizations and
+          individuals seeking to enhance their strategic capabilities without compromising on integrity.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/about-us/about-us.component.html</context>
+          <context context-type="linenumber">7,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2159130950882492111" datatype="html">
+        <source>Cancel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/about-us/about-us.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirm-delete/confirm-delete.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/help-text/help-text.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4423437485928586711" datatype="html">
+        <source>Select actors to post</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/actors-list-check/actors-list-check.component.html</context>
+          <context context-type="linenumber">1,2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="117504140867665286" datatype="html">
+        <source>Accept
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/actors-list-check/actors-list-check.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users-list-check/users-list-check.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3008420115644088420" datatype="html">
+        <source>Configuration</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-notification/user-notification.component.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2179675132693271881" datatype="html">
+        <source>User</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6049611096741159357" datatype="html">
+        <source>Actor</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6289100530445553482" datatype="html">
+        <source>Topic</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8728259718173346897" datatype="html">
+        <source>Group</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7286430803380181008" datatype="html">
+        <source>Id</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4692060306940880775" datatype="html">
+        <source>createAt</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">42,43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">142,143</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6949861863765149851" datatype="html">
+        <source>updateAt</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">47,48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">147,148</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3524515557222146955" datatype="html">
+        <source>firstName</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5754988180066876440" datatype="html">
+        <source>firstNameForSearch</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">57,58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1908417291315323180" datatype="html">
+        <source>lastName</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">62,63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2245328249186228670" datatype="html">
+        <source>lastNameForSearch</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">67,68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8339711899520080458" datatype="html">
+        <source>birthday</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">72,73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="802467329535819869" datatype="html">
+        <source>gender</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">77,78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7315714079098881460" datatype="html">
+        <source>email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">82,83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1987819560620948224" datatype="html">
+        <source>emailForSearch</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">87,88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1422532799283087461" datatype="html">
+        <source>userName</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">92,93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="748312432291188194" datatype="html">
+        <source>userNameForSearch</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">97,98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5228759769320335454" datatype="html">
+        <source>address</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">102,103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4922393716341836265" datatype="html">
+        <source>Accions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">108,109</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3625859417927520024" datatype="html">
+        <source>id</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">138</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3325180562659478330" datatype="html">
+        <source>name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">153,154</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1849547457888884301" datatype="html">
+        <source>nameForSearch</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">158,159</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8929794458901708112" datatype="html">
+        <source>color</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">163,164</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6376009999463226676" datatype="html">
+        <source>admin.id</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">168,169</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6305962755687847469" datatype="html">
+        <source>actions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">174,175</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7170240979381321210" datatype="html">
+        <source>Create Group</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/configuration/configuration.component.html</context>
+          <context context-type="linenumber">193,194</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3545265081362606960" datatype="html">
+        <source>Delete Confirm</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirm-delete/confirm-delete.component.html</context>
+          <context context-type="linenumber">1,2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5210270493533766316" datatype="html">
+        <source>Delete?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirm-delete/confirm-delete.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7022070615528435141" datatype="html">
+        <source>Delete</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/confirm-delete/confirm-delete.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1372647340273438777" datatype="html">
+        <source>Group Selected</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dropdown-groups-title/dropdown-groups-title.component.html
+          </context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6252070156626006029" datatype="html">
+        <source>None</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dropdown-groups-title/dropdown-groups-title.component.html
+          </context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/group-information/group-information.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post/post.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post/post.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5701618810648052610" datatype="html">
+        <source>Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/dropdown-groups-title/dropdown-groups-title.component.html
+          </context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8623978917681527907" datatype="html">
+        <source>Group</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/group-information/group-information.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/group-information/group-information.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6718265754480540209" datatype="html">
+        <source>Name Search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/group-information/group-information.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9011959596901584887" datatype="html">
+        <source>Color</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/group-information/group-information.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5041354590769758251" datatype="html">
+        <source>Admin</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/group-information/group-information.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5128946458975256077" datatype="html">
+        <source>Add Users</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/group-information/group-information.component.html</context>
+          <context context-type="linenumber">41,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3620188369327429839" datatype="html">
+        <source>Save</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/group-information/group-information.component.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-comments-create/post-comments-create.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">97,98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2211684883669980412" datatype="html">
+        <source>Permiso de Micrófono, Camara y Subir Archivos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/help-text/help-text.component.html</context>
+          <context context-type="linenumber">2,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1699763185759308797" datatype="html">
+        <source>
+          Para permitir que la aplicación acceda al Micrófono, la Camara y la subida de Archivos Multimedia sigue estos
+          pasos:
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/help-text/help-text.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8736216336794719698" datatype="html">
+        <source>Abre la aplicación<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Configuración
+          <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>
+          en tu dispositivo Android.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/help-text/help-text.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5039865774087121052" datatype="html">
+        <source>Dirígete a<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Aplicaciones
+          <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>
+          o<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Gestión de aplicaciones<x
+            id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/help-text/help-text.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="47632499199970367" datatype="html">
+        <source>Busca y selecciona<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>VSnet<x
+          id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/help-text/help-text.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4162801836913675819" datatype="html">
+        <source>Toca<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Permisos<x
+          id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/help-text/help-text.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="672827713019350343" datatype="html">
+        <source>Habilita el<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Micrófono, la Camara y
+          la subida de Archivos<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/help-text/help-text.component.html</context>
+          <context context-type="linenumber">12,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8576829412662695952" datatype="html">
+        <source>Si necesitas más ayuda, contacta con nuestro soporte técnico.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/help-text/help-text.component.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2454050363478003966" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4768749765465246664" datatype="html">
+        <source>Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1431416938026210429" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1908285951500318953" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="516427676573806149" datatype="html">
+        <source>VS System</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/news-feed/news-feed.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2662644497259948010" datatype="html">
+        <source>Comment</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-comments-create/post-comments-create.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-comments-create/post-comments-create.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-comments/post-comments.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3807699453257291879" datatype="html">
+        <source>Comments</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-comments/post-comments.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4207916966377787111" datatype="html">
+        <source>Created</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-comments/post-comments.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4468433143721320762" datatype="html">
+        <source>Create Comment</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-comments/post-comments.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5371612881736780923" datatype="html">
+        <source>Topic :
+          <x id="INTERPOLATION" equiv-text="{{ post.topic?.name }}"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-list/post-list.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3412119015231612510" datatype="html">
+        <source>Actor :
+          <x id="INTERPOLATION" equiv-text="{{ post.actor?.name }}"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-list/post-list.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8400899380819840555" datatype="html">
+        <source>Comment :
+          <x id="INTERPOLATION" equiv-text="{{ post.info }}"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-list/post-list.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="901690886596964406" datatype="html">
+        <source>Liked by :
+          <x id="START_BLOCK_FOR" equiv-text="@for (usersLikedPosts of post.likedBy; track usersLikedPosts) {"/>
+          <x id="INTERPOLATION" equiv-text="{{ usersLikedPosts.user?.userName }}"/>,
+          <x id="CLOSE_BLOCK_FOR" equiv-text="}"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-list/post-list.component.html</context>
+          <context context-type="linenumber">18,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1619344176447657437" datatype="html">
+        <source>LIKE</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-list/post-list.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4956631740752283216" datatype="html">
+        <source>COMMENT</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-list/post-list.component.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6544292891804316575" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon&gt;"/>home
+          <x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/>
+          Home
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-options/post-options.component.html</context>
+          <context context-type="linenumber">3,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7691701543000546246" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon&gt;"/>add_circle_outline
+          <x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/>
+          Add Post
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-options/post-options.component.html</context>
+          <context context-type="linenumber">7,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1394903820725361229" datatype="html">
+        <source>Post Text</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-search/post-search.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3743956401499447525" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon&gt;"/>public
+          <x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-search/post-search.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2052509945808327322" datatype="html">
+        <source>Search Comment</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post-search/post-search.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1048750330687155124" datatype="html">
+        <source>Create Post</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post/post.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="280037693389514884" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon&gt;"/>account_box
+          <x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/>
+          Tag People
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post/post.component.html</context>
+          <context context-type="linenumber">23,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1716460605339203247" datatype="html">
+        <source>Topic Selected</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post/post.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1140924691027380841" datatype="html">
+        <source>New Topic</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post/post.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="178255657064020501" datatype="html">
+        <source>Actor Selected</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post/post.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5184915343655687786" datatype="html">
+        <source>New Actor</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post/post.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5313222937524735318" datatype="html">
+        <source>SAVE POST</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/post/post.component.html</context>
+          <context context-type="linenumber">91,92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6382971563823717204" datatype="html">
+        <source>1. Quiénes somos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3234090621394178680" datatype="html">
+        <source>1.1. Somos VSnet 2024, una red social destinada a conectar usuarios mediante contenido multimedia, foros
+          y otras funciones interactivas.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">3,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5524359363348838202" datatype="html">
+        <source>1.2. Esta Política de Privacidad describe cómo recopilamos y utilizamos tu información personal cuando
+          usas nuestros servicios, ya sea a través de la aplicación móvil o la plataforma web, y las opciones
+          disponibles para ti en relación con el uso de tus datos personales. Esta política debe ser leída junto con
+          nuestros Términos y Condiciones, disponibles en nuestro sitio web. En caso de contradicciones, prevalecerá
+          esta Política de Privacidad.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1210612547404542618" datatype="html">
+        <source>2. Información que recopilamos sobre ti</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6111030986790537622" datatype="html">
+        <source>2.1. Al utilizar nuestros servicios, podemos recopilar la siguiente información:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">8,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1467048395672091175" datatype="html">
+        <source>Información que proporcionas al registrarte: Incluye tu correo electrónico, número de teléfono, nombre,
+          género, fecha de nacimiento, y otras preferencias de perfil.
+          Permisos de cámara y micrófono: Si decides tomar y compartir fotos o grabaciones de audio mediante nuestra
+          plataforma, solicitamos permisos para acceder a la cámara y al micrófono de tu dispositivo. Esto se utiliza
+          únicamente para el propósito de cargar contenido en tu perfil o para interactuar en las funciones multimedia
+          de la red social.
+          Uso de archivos multimedia: Accedemos a los archivos multimedia almacenados en tu dispositivo (fotos, videos,
+          etc.) solo si decides cargar o compartir este contenido en nuestra plataforma. Estos archivos se procesan
+          conforme a nuestra política para garantizar su almacenamiento y visualización adecuados en la red social.
+          Datos técnicos del dispositivo: Recopilamos información técnica, como la dirección IP, modelo de dispositivo,
+          sistema operativo, tipo de navegador, y datos de navegación para mejorar tu experiencia de usuario y
+          personalizar el contenido y los anuncios que ves.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">10,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5863985390861297189" datatype="html">
+        <source>3. Propósito del uso de tu información
+          Utilizamos la información que recopilamos para los siguientes fines:
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">14,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6300550603490668826" datatype="html">
+        <source>Administrar y ofrecer nuestros servicios de red social de manera eficiente.
+          Permitir la interacción con otros usuarios mediante el uso de multimedia (fotos, videos, mensajes).
+          Proporcionar actualizaciones y novedades sobre VSnet y servicios de terceros que creemos que podrían
+          interesarte.
+          Personalizar los anuncios y contenidos que se muestran en nuestra plataforma.
+          Mejorar nuestras funcionalidades y resolver problemas técnicos relacionados con el acceso y uso de la
+          aplicación.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">17,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3323642657589012522" datatype="html">
+        <source>4. Compartir tu información</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3154812655344023482" datatype="html">
+        <source>Tu información, como nombre de usuario y datos de perfil, puede ser visible para otros usuarios de la
+          red social. Además, podemos compartir tu información con terceros en las siguientes circunstancias:
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">23,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3126636515088314082" datatype="html">
+        <source>Publicidad y recomendaciones personalizadas: Los anunciantes pueden utilizar tus datos de forma anónima
+          para personalizar los anuncios que ves, basándose en intereses generales como ubicación, edad o género.
+          Proveedores de servicios y desarrolladores: Podemos compartir tu información con proveedores de servicios
+          externos para mejorar las funcionalidades de la plataforma, siempre bajo un acuerdo de confidencialidad.
+          Cumplimiento de la ley y obligaciones regulatorias: Si se requiere, podemos divulgar tus datos a autoridades
+          legales o fiscales en el contexto de una investigación o requerimiento oficial.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">25,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8978351668069578650" datatype="html">
+        <source>5. Privacidad y seguridad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7464186015144318093" datatype="html">
+        <source>5.1. Protección de datos: Tomamos medidas técnicas y organizativas para proteger tu información personal
+          contra el acceso no autorizado y el uso indebido.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">29,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3962557476716226133" datatype="html">
+        <source>5.2. Configuración de privacidad: Puedes gestionar la visibilidad de tu información en los ajustes de
+          privacidad de tu cuenta. Ten en cuenta que cualquier contenido que publiques en VSnet puede ser accesible para
+          otros usuarios y en algunos casos, se podría compartir públicamente.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">31,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="864591782427390984" datatype="html">
+        <source>6. Transferencias internacionales de datos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">33,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8640558278076108940" datatype="html">
+        <source>6.1. Tu información personal puede ser transferida y almacenada fuera de tu país de residencia, en
+          servidores ubicados en otros países. Tomamos las medidas necesarias para garantizar la protección adecuada de
+          tus datos personales en esos casos.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">34,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1410276502736658061" datatype="html">
+        <source>7. Uso de cookies y tecnologías similares</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1546822619559091654" datatype="html">
+        <source>Utilizamos cookies y tecnologías de seguimiento para mejorar tu experiencia de usuario, analizar cómo
+          usas nuestros servicios y ofrecer publicidad personalizada. Puedes gestionar tus preferencias de cookies en
+          los ajustes de la aplicación.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">37,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1455173095591148155" datatype="html">
+        <source>8. Cambios en esta política</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7439554099487282200" datatype="html">
+        <source>Podemos actualizar esta Política de Privacidad en cualquier momento, y cualquier cambio será publicado
+          en nuestro sitio web. La fecha de la última actualización se indica al principio de esta política.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">40,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3687805271168617313" datatype="html">
+        <source>9. Contacto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">42,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4956666071235201518" datatype="html">
+        <source>Si tienes alguna pregunta sobre esta Política de Privacidad o sobre el uso de tus datos personales, por
+          favor contáctanos a través de la información proporcionada en nuestro sitio web oficial.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/privacy-and-security/privacy-and-security.component.html</context>
+          <context context-type="linenumber">43,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1801719060163713590" datatype="html">
+        <source>Leave a comment</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/text-image-post/text-image-post.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4834028906306079724" datatype="html">
+        <source>Ex. It is...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/text-image-post/text-image-post.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5717583355551872644" datatype="html">
+        <source>Cargar Imagen</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/text-image-post/text-image-post.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4123965720015084958" datatype="html">
+        <source>Seleccionar Imagen</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/text-image-post/text-image-post.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1490503775102382610" datatype="html">
+        <source>Subir Archivos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/text-image-post/text-image-post.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4775890043762701421" datatype="html">
+        <source>Archivos seleccionados:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/text-image-post/text-image-post.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5944812089887969249" datatype="html">
+        <source>Groups</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/tree-groups/tree-groups.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2392488717875840729" datatype="html">
+        <source>User</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4407559560004943843" datatype="html">
+        <source>Last Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8180564118785949986" datatype="html">
+        <source>Last Name Search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6410776529015462015" datatype="html">
+        <source>Email Search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5248717555542428023" datatype="html">
+        <source>Username</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8182187637384980178" datatype="html">
+        <source>Username Search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3241357959735682038" datatype="html">
+        <source>Confirm Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2772668468223898232" datatype="html">
+        <source>Birthday</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3948439187870398089" datatype="html">
+        <source>Gender</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7484585371899807823" datatype="html">
+        <source>FEMALE</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5545702374027392891" datatype="html">
+        <source>MALE</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3243968492364101926" datatype="html">
+        <source>UNSPECIFIED</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6304432362546770951" datatype="html">
+        <source>Address</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3562199946446423606" datatype="html">
+        <source>About me</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-information/user-information.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2127032578120864096" datatype="html">
+        <source>My Profile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-notification/user-notification.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7187214458251135506" datatype="html">
+        <source>Privacy and Security</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-notification/user-notification.component.html</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4675008158214780568" datatype="html">
+        <source>Languaje</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-notification/user-notification.component.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7911416166208830577" datatype="html">
+        <source>Help</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-notification/user-notification.component.html</context>
+          <context context-type="linenumber">43,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5736481176444461852" datatype="html">
+        <source>About Us</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-notification/user-notification.component.html</context>
+          <context context-type="linenumber">47,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3797778920049399855" datatype="html">
+        <source>Logout</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user-notification/user-notification.component.html</context>
+          <context context-type="linenumber">51,52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8066505832093635601" datatype="html">
+        <source>Select users to group</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users-list-check/users-list-check.component.html</context>
+          <context context-type="linenumber">1,2</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
