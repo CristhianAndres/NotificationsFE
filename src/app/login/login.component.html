@@ -1,8 +1,8 @@
 <div class="login-container">
-    <h2>Login</h2>
+    <h2 i18n>Login</h2>
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="grid-form">
     <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
+      <mat-label i18n>Email</mat-label>
       <input
         matInput
         type="email"
@@ -14,7 +14,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Password</mat-label>
+      <mat-label i18n>Password</mat-label>
       <input
         matInput
         type="password"
@@ -28,7 +28,7 @@
       </mat-error-->
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">
+    <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid" i18n>
       Login
     </button>
   </form>

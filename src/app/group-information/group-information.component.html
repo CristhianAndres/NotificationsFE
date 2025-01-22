@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <span>Group</span>
+  <span i18n>Group</span>
   <span>-</span>
   <span>{{ isEditMode ? ' Update' : ' Create' }}</span>
   <span class="spacer"></span>
@@ -12,24 +12,24 @@
   <form [formGroup]="groupForm" (ngSubmit)="onSubmit()" class="grid-form">
 
     <mat-form-field appearance="fill">
-      <mat-label>Name</mat-label>
+      <mat-label i18n>Name</mat-label>
       <input matInput formControlName="name">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Name Search</mat-label>
+      <mat-label i18n>Name Search</mat-label>
       <input matInput formControlName="nameForSearch">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Color</mat-label>
+      <mat-label i18n>Color</mat-label>
       <input matInput formControlName="color">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Admin</mat-label>
+      <mat-label i18n>Admin</mat-label>
       <mat-select [(value)]="selectedAdmin" formControlName="userId">
-        <mat-option>None</mat-option>
+        <mat-option i18n>None</mat-option>
         @for (user of users; track user) {
           <mat-option [value]="user.id">{{user.firstName}} - {{user.lastName}}</mat-option>
         }
@@ -37,10 +37,10 @@
       </mat-select>
     </mat-form-field>
 
-    <button mat-fab *ngIf="isEditMode" extended class="action-button-save-group" type="button" (click)="openAddUsers()">
+    <button mat-fab *ngIf="isEditMode" extended class="action-button-save-group" type="button" (click)="openAddUsers()" i18n>
       Add Users
     </button>
-    <button mat-fab extended class="action-button-save-group" type="submit">
+    <button mat-fab extended class="action-button-save-group" type="submit" i18n>
       Save
     </button>
   </form>

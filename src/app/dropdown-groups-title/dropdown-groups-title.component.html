@@ -1,8 +1,8 @@
 <div class="form-grid">
   <mat-form-field class="dropdown-groups-post">
-    <mat-label>Group Selected</mat-label>
+    <mat-label i18n>Group Selected</mat-label>
     <mat-select [(value)]="selectedGroup">
-      <mat-option>None</mat-option>
+      <mat-option i18n>None</mat-option>
       @for (group of groups; track group) {
         <mat-option [value]="group">{{ group.name }} - {{ group.color }}</mat-option>
       }
@@ -10,7 +10,7 @@
   </mat-form-field>
 
   <mat-form-field class="dropdown-groups-post-title">
-    <mat-label>Title</mat-label>
+    <mat-label i18n>Title</mat-label>
     <input matInput type="text" [(ngModel)]="title">
   </mat-form-field>
 </div>

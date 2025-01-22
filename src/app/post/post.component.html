@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <span>Create Post</span>
+  <span i18n>Create Post</span>
   <span class="spacer"></span>
   <button mat-icon-button class="close-button" (click)="closeModal()">
     <mat-icon>close</mat-icon>
@@ -19,7 +19,7 @@
     </mat-grid-tile>
 
     <mat-grid-tile colspan="1" rowspan="2" class="tile-content-button-photos">
-      <button mat-fab extended class="action-button-post" (click)="openAddUsers()">
+      <button mat-fab extended class="action-button-post" (click)="openAddUsers()" i18n>
         <mat-icon>account_box</mat-icon>
         Tag People
       </button>
@@ -52,16 +52,16 @@
     <mat-grid-tile colspan="4" rowspan="1" style="background-color: darkseagreen; padding: 0px 10px;">
       <div class="tile-content-topic-div">
         <mat-form-field class="dropdown-title-post">
-          <mat-label>Topic Selected</mat-label>
+          <mat-label i18n>Topic Selected</mat-label>
           <mat-select [(value)]="selectedTopic" (selectionChange)="onSelectChange()">
-            <mat-option>None</mat-option>
+            <mat-option i18n>None</mat-option>
             @for (topic of topics; track topic) {
               <mat-option [value]="topic">{{ topic.name }}</mat-option>
             }
           </mat-select>
         </mat-form-field>
         <mat-form-field class="dropdown-title-post-title">
-          <mat-label>New Topic</mat-label>
+          <mat-label i18n>New Topic</mat-label>
           <input matInput [(ngModel)]="newTopicText" (change)="onTopicChange()">
         </mat-form-field>
       </div>
@@ -70,16 +70,16 @@
     <mat-grid-tile colspan="4" rowspan="1" style="background-color: darkseagreen; padding: 0px 10px;">
       <div class="tile-content-topic-div">
         <mat-form-field class="dropdown-title-post">
-          <mat-label>Actor Selected</mat-label>
+          <mat-label i18n>Actor Selected</mat-label>
           <mat-select [(value)]="selectedActor" (selectionChange)="onSelectChangeActor()">
-            <mat-option>None</mat-option>
+            <mat-option i18n>None</mat-option>
             @for (actor of actors; track actor) {
               <mat-option [value]="actor">{{ actor.name }}</mat-option>
             }
           </mat-select>
         </mat-form-field>
         <mat-form-field class="dropdown-title-post-title">
-          <mat-label>New Actor</mat-label>
+          <mat-label i18n>New Actor</mat-label>
           <input matInput [(ngModel)]="newActorText" (change)="onActorChange()">
         </mat-form-field>
       </div>
@@ -87,7 +87,7 @@
 
     <!-- boton para guardar -->
     <mat-grid-tile colspan="4" rowspan="1">
-      <button mat-fab extended class="action-button-save" type="submit" (click)="savePosts()">
+      <button mat-fab extended class="action-button-save" type="submit" (click)="savePosts()" i18n>
         SAVE POST
       </button>
     </mat-grid-tile>

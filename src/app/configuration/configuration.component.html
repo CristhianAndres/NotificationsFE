@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <span>Configuration</span>
+  <span i18n>Configuration</span>
   <span class="spacer"></span>
   <button mat-icon-button class="close-button" (click)="closeModal()">
     <mat-icon>close</mat-icon>
@@ -12,17 +12,17 @@
     <mat-grid-tile colspan="2" rowspan="9" class="tile-content-buttons-conf">
       <div class="button-container-conf">
         <button mat-fab extended class="action-button-conf-opt" (click)="openDialogUser()"
-                [ngStyle]="{'background-color': backgroundColorUser}">
+                [ngStyle]="{'background-color': backgroundColorUser}" i18n>
           User
         </button>
-        <button mat-fab extended hidden=true class="action-button-conf-opt" (click)="openDialogActor()">
+        <button mat-fab extended hidden=true class="action-button-conf-opt" (click)="openDialogActor()" i18n>
           Actor
         </button>
-        <button mat-fab extended hidden=true class="action-button-conf-opt" (click)="openDialogTopic()">
+        <button mat-fab extended hidden=true class="action-button-conf-opt" (click)="openDialogTopic()" i18n>
           Topic
         </button>
         <button mat-fab extended class="action-button-conf-opt" (click)="openDialogGroup()"
-                [ngStyle]="{'background-color': backgroundColorGroup}">
+                [ngStyle]="{'background-color': backgroundColorGroup}" i18n>
           Group
         </button>
       </div>
@@ -34,78 +34,78 @@
         <div class="table-container-conf">
           <table mat-table [dataSource]="dataSourceUsers" class="mat-elevation-z8 demo-table">
             <ng-container matColumnDef="id">
-              <th mat-header-cell *matHeaderCellDef>Id</th>
+              <th mat-header-cell *matHeaderCellDef i18n>Id</th>
               <td mat-cell *matCellDef="let element">{{ element.id }}</td>
             </ng-container>
 
             <ng-container matColumnDef="createAt">
-              <th mat-header-cell *matHeaderCellDef>createAt</th>
+              <th mat-header-cell *matHeaderCellDef i18n>createAt</th>
               <td mat-cell *matCellDef="let element">{{ element.createAt }}</td>
             </ng-container>
 
             <ng-container matColumnDef="updateAt">
-              <th mat-header-cell *matHeaderCellDef>updateAt</th>
+              <th mat-header-cell *matHeaderCellDef i18n>updateAt</th>
               <td mat-cell *matCellDef="let element">{{ element.updateAt }}</td>
             </ng-container>
 
             <ng-container matColumnDef="firstName">
-              <th mat-header-cell *matHeaderCellDef>firstName</th>
+              <th mat-header-cell *matHeaderCellDef i18n>firstName</th>
               <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
             </ng-container>
 
             <ng-container matColumnDef="firstNameForSearch">
-              <th mat-header-cell *matHeaderCellDef>firstNameForSearch</th>
+              <th mat-header-cell *matHeaderCellDef i18n>firstNameForSearch</th>
               <td mat-cell *matCellDef="let element">{{ element.firstNameForSearch }}</td>
             </ng-container>
 
             <ng-container matColumnDef="lastName">
-              <th mat-header-cell *matHeaderCellDef>lastName</th>
+              <th mat-header-cell *matHeaderCellDef i18n>lastName</th>
               <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
             </ng-container>
 
             <ng-container matColumnDef="lastNameForSearch">
-              <th mat-header-cell *matHeaderCellDef>lastNameForSearch</th>
+              <th mat-header-cell *matHeaderCellDef i18n>lastNameForSearch</th>
               <td mat-cell *matCellDef="let element">{{ element.lastNameForSearch }}</td>
             </ng-container>
 
             <ng-container matColumnDef="birthday">
-              <th mat-header-cell *matHeaderCellDef>birthday</th>
+              <th mat-header-cell *matHeaderCellDef i18n>birthday</th>
               <td mat-cell *matCellDef="let element">{{ element.birthday }}</td>
             </ng-container>
 
             <ng-container matColumnDef="gender">
-              <th mat-header-cell *matHeaderCellDef>gender</th>
+              <th mat-header-cell *matHeaderCellDef i18n>gender</th>
               <td mat-cell *matCellDef="let element">{{ element.gender }}</td>
             </ng-container>
 
             <ng-container matColumnDef="email">
-              <th mat-header-cell *matHeaderCellDef>email</th>
+              <th mat-header-cell *matHeaderCellDef i18n>email</th>
               <td mat-cell *matCellDef="let element">{{ element.email }}</td>
             </ng-container>
 
             <ng-container matColumnDef="emailForSearch">
-              <th mat-header-cell *matHeaderCellDef>emailForSearch</th>
+              <th mat-header-cell *matHeaderCellDef i18n>emailForSearch</th>
               <td mat-cell *matCellDef="let element">{{ element.emailForSearch }}</td>
             </ng-container>
 
             <ng-container matColumnDef="userName">
-              <th mat-header-cell *matHeaderCellDef>userName</th>
+              <th mat-header-cell *matHeaderCellDef i18n>userName</th>
               <td mat-cell *matCellDef="let element">{{ element.userName }}</td>
             </ng-container>
 
             <ng-container matColumnDef="userNameForSearch">
-              <th mat-header-cell *matHeaderCellDef>userNameForSearch</th>
+              <th mat-header-cell *matHeaderCellDef i18n>userNameForSearch</th>
               <td mat-cell *matCellDef="let element">{{ element.userNameForSearch }}</td>
             </ng-container>
 
             <ng-container matColumnDef="address">
-              <th mat-header-cell *matHeaderCellDef>address</th>
+              <th mat-header-cell *matHeaderCellDef i18n>address</th>
               <td mat-cell *matCellDef="let element">{{ element.address }}</td>
             </ng-container>
 
             <!-- Columna Acciones -->
             <ng-container matColumnDef="actions">
-              <th mat-header-cell *matHeaderCellDef>Acciones</th>
+              <th mat-header-cell *matHeaderCellDef i18n>Accions</th>
               <td mat-cell *matCellDef="let user">
                 <button mat-button (click)="editUser(user)">
                   <mat-icon>edit</mat-icon>
@@ -134,44 +134,44 @@
         <table mat-table [dataSource]="dataSourceGroups" class="mat-elevation-z8 demo-table">
           <!-- Position Column -->
           <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef>id</th>
+            <th mat-header-cell *matHeaderCellDef i18n>id</th>
             <td mat-cell *matCellDef="let element">{{ element.id }}</td>
           </ng-container>
 
           <ng-container matColumnDef="createAt">
-            <th mat-header-cell *matHeaderCellDef>createAt</th>
+            <th mat-header-cell *matHeaderCellDef i18n>createAt</th>
             <td mat-cell *matCellDef="let element">{{ element.createAt }}</td>
           </ng-container>
 
           <ng-container matColumnDef="updateAt">
-            <th mat-header-cell *matHeaderCellDef>updateAt</th>
+            <th mat-header-cell *matHeaderCellDef i18n>updateAt</th>
             <td mat-cell *matCellDef="let element">{{ element.updateAt }}</td>
           </ng-container>
 
           <!-- Name Column -->
           <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef>name</th>
+            <th mat-header-cell *matHeaderCellDef i18n>name</th>
             <td mat-cell *matCellDef="let element">{{ element.name }}</td>
           </ng-container>
 
           <ng-container matColumnDef="nameForSearch">
-            <th mat-header-cell *matHeaderCellDef>nameForSearch</th>
+            <th mat-header-cell *matHeaderCellDef i18n>nameForSearch</th>
             <td mat-cell *matCellDef="let element">{{ element.nameForSearch }}</td>
           </ng-container>
 
           <ng-container matColumnDef="color">
-            <th mat-header-cell *matHeaderCellDef>color</th>
+            <th mat-header-cell *matHeaderCellDef i18n>color</th>
             <td mat-cell *matCellDef="let element">{{ element.color }}</td>
           </ng-container>
 
           <ng-container matColumnDef="admin.id">
-            <th mat-header-cell *matHeaderCellDef>admin.id</th>
+            <th mat-header-cell *matHeaderCellDef i18n>admin.id</th>
             <td mat-cell *matCellDef="let element">{{ element.admin.id }}</td>
           </ng-container>
 
           <!-- Columna Acciones -->
           <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef>actions</th>
+            <th mat-header-cell *matHeaderCellDef i18n>actions</th>
             <td mat-cell *matCellDef="let group">
               <button mat-button (click)="editGroup(group)">
                 <mat-icon>edit</mat-icon>
@@ -189,7 +189,7 @@
     </mat-grid-tile>
 
     <mat-grid-tile *ngIf="isTileGroupVisible" colspan="7" rowspan="1">
-      <button mat-fab extended class="action-button-create" (click)="openCreateGroup()">
+      <button mat-fab extended class="action-button-create" (click)="openCreateGroup()" i18n>
         Create Group
       </button>
     </mat-grid-tile>

@@ -1,13 +1,13 @@
 <mat-toolbar>
-  <span>Comment</span>
+  <span i18n>Comment</span>
 </mat-toolbar>
 <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="grid-form">
   <mat-form-field appearance="fill">
-    <mat-label>Comment</mat-label>
+    <mat-label i18n>Comment</mat-label>
     <input matInput formControlName="textComment">
   </mat-form-field>
   <div class="button-container">
-  <button mat-fab extended class="action-button-save-user" type="submit">
+  <button mat-fab extended class="action-button-save-user" type="submit" i18n>
     Save
   </button>
   </div>

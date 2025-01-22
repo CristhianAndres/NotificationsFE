@@ -2,9 +2,9 @@
   <mat-form-field appearance="outline" class="form-field">
     <mat-icon matPrefix>search</mat-icon>
     <mat-label>Search in Post</mat-label>
-    <input matInput placeholder="Post Text" [(ngModel)]="postText">
-    <button mat-icon-button matSuffix (click)="cargarPostsFromPostText()">
+    <input matInput placeholder="Post Text" i18n-placeholder [(ngModel)]="postText">
+    <button mat-icon-button matSuffix (click)="cargarPostsFromPostText()" i18n>
       <mat-icon>public</mat-icon> <!-- Puedes usar un icono o simplemente texto en el botón -->
     </button>
-    <mat-hint>Search Comment</mat-hint>
+    <mat-hint i18n>Search Comment</mat-hint>
   </mat-form-field>
