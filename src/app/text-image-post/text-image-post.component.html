@@ -6,21 +6,21 @@
 
 <mat-card appearance="outlined">
   <mat-card-header>
-    <mat-card-title i18n>Cargar Imagen</mat-card-title>
+    <mat-card-title i18n>Load Image</mat-card-title>
   </mat-card-header>
   <mat-card-content>
 
-    <mat-label i18n>Seleccionar Imagen</mat-label>
+    <mat-label i18n>Select Image</mat-label>
     <input
       type="file"
       (change)="onFileSelected($event)"
       accept="image/*,video/*,audio/*"
       multiple
     />
-    <button (click)="uploadFiles()" i18n>Subir Archivos</button>
+    <button (click)="uploadFiles()" i18n>Upload Files</button>
 
     <div *ngIf="selectedFiles.length > 0">
-      <h4 i18n>Archivos seleccionados:</h4>
+      <h4 i18n>Files Selected:</h4>
       <ul>
         <li *ngFor="let file of selectedFiles">{{ file.name }}</li>
       </ul>
